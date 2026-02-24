@@ -16,21 +16,29 @@ export function calculateQSP(trialData, ingredients, qspIngredientId, targetMass
 
 /**
  * Calcule le coût total d'un essai et la répartition support/aromatisant.
+ * Prend en compte la masse QSP calculée pour l'ingrédient QSP.
  */
-export function calculateTrialCost(trialData, ingredients) {
+export function calculateTrialCost(trialData, ingredients, qspIngredientId, targetMass) {
   if (!trialData) return { total: 0, support: 0, aromatic: 0 };
+
+  // Calculer la masse QSP si nécessaire
+  const qspMass = qspIngredientId ? calculateQSP(trialData, ingredients, qspIngredientId, targetMass) : 0;
 
   let total = 0;
   let support = 0;
   let aromatic = 0;
 
-  for (const [ingId, cellData] of Object.entries(trialData)) {
-    const ing = ingredients.find(i => i.id === ingId);
-    if (!ing || !cellData.mass || cellData.mass <= 0) continue;
+  for (const ing of ingredients) {
+    const cellData = trialData[ing.id];
+    const isQsp = ing.id === qspIngredientId;
 
-    const dilution = cellData.dilution ?? 1;
+    // Masse = QSP calculé ou masse saisie
+    const mass = isQsp ? qspMass : (cellData?.mass || 0);
+    if (mass <= 0) continue;
+
+    const dilution = cellData?.dilution ?? 1;
     // Coût = prix(€/kg) * dilution * masse(g) / 1000
-    const cost = ing.prix * dilution * (cellData.mass / 1000);
+    const cost = ing.prix * dilution * (mass / 1000);
     total += cost;
 
     if (ing.type === 'support') support += cost;
@@ -57,19 +65,24 @@ export function calculateTargetCost(targetSalePrice, factor) {
 
 /**
  * Densité du mélange (moyenne pondérée par la masse).
+ * Prend en compte la masse QSP calculée.
  */
-export function calculateDensity(trialData, ingredients) {
+export function calculateDensity(trialData, ingredients, qspIngredientId, targetMass) {
   if (!trialData) return 0;
+
+  const qspMass = qspIngredientId ? calculateQSP(trialData, ingredients, qspIngredientId, targetMass) : 0;
 
   let totalMass = 0;
   let weightedSum = 0;
 
-  for (const [ingId, cellData] of Object.entries(trialData)) {
-    const ing = ingredients.find(i => i.id === ingId);
-    if (!ing || !cellData.mass || cellData.mass <= 0 || !ing.densite) continue;
+  for (const ing of ingredients) {
+    const cellData = trialData[ing.id];
+    const isQsp = ing.id === qspIngredientId;
+    const mass = isQsp ? qspMass : (cellData?.mass || 0);
+    if (mass <= 0 || !ing.densite) continue;
 
-    totalMass += cellData.mass;
-    weightedSum += cellData.mass * ing.densite;
+    totalMass += mass;
+    weightedSum += mass * ing.densite;
   }
 
   return totalMass > 0 ? weightedSum / totalMass : 0;
@@ -78,20 +91,25 @@ export function calculateDensity(trialData, ingredients) {
 /**
  * Profil vanilline : pourcentage, fold, équivalent gousses.
  * Référence : gousse de vanille = 1.6% vanilline.
+ * Prend en compte la masse QSP calculée.
  */
-export function calculateVanillinProfile(trialData, ingredients) {
+export function calculateVanillinProfile(trialData, ingredients, qspIngredientId, targetMass) {
   if (!trialData) return { percentage: 0, fold: 0, beansEquiv: 0 };
 
-  const VANILLIN_REF = 1.6; // % vanilline dans gousse de référence
+  const VANILLIN_REF = 1.6;
+  const qspMass = qspIngredientId ? calculateQSP(trialData, ingredients, qspIngredientId, targetMass) : 0;
+
   let totalEffectiveMass = 0;
   let weightedVanillinSum = 0;
 
-  for (const [ingId, cellData] of Object.entries(trialData)) {
-    const ing = ingredients.find(i => i.id === ingId);
-    if (!ing || !cellData.mass || cellData.mass <= 0) continue;
+  for (const ing of ingredients) {
+    const cellData = trialData[ing.id];
+    const isQsp = ing.id === qspIngredientId;
+    const mass = isQsp ? qspMass : (cellData?.mass || 0);
+    if (mass <= 0) continue;
 
-    const dilution = cellData.dilution ?? 1;
-    const effectiveMass = cellData.mass * dilution;
+    const dilution = cellData?.dilution ?? 1;
+    const effectiveMass = mass * dilution;
 
     if (effectiveMass > 0) {
       totalEffectiveMass += effectiveMass;
@@ -104,6 +122,15 @@ export function calculateVanillinProfile(trialData, ingredients) {
   const beansEquiv = fold * 100; // g de gousses par kg de formule
 
   return { percentage, fold, beansEquiv };
+}
+
+/**
+ * Retourne "de X" ou "d'X" selon si X commence par une voyelle/h muet.
+ */
+function deSource(source) {
+  const s = source.trim();
+  if (/^[aeiouhyàâéèêëïîôùûüæœ]/i.test(s)) return `d'${s}`;
+  return `de ${s}`;
 }
 
 /**
@@ -153,29 +180,35 @@ export function classifyFormula(trialData, ingredients) {
   }
 
   if (extraits.length === 1 && aromatisants.length === 1) {
+    const src = extraits[0].ing.sourceExtrait;
+    const de = deSource(src);
     return {
-      label: `Extrait de ${extraits[0].ing.sourceExtrait}`,
-      cssClass: 'extrait',
-      details: 'Extrait unique',
+      label: `Arôme naturel ${de} (extrait ${de})`,
+      cssClass: 'arome-naturel-de-x',
+      details: `Extrait unique ${de}`,
       sources: analyzeSources(aromatisants),
     };
   }
 
   const sources = analyzeSources(aromatisants);
-  if (sources.length > 0) {
-    const dominant = sources[0];
+  // For labeling, only consider named sources (not "Autres substances")
+  const namedSources = sources.filter(s => !s.isUnsourced);
+
+  if (namedSources.length > 0) {
+    const dominant = namedSources[0];
+    const de = deSource(dominant.source);
     if (dominant.percentage >= 95) {
       return {
-        label: `Arôme naturel de ${dominant.source}`,
+        label: `Arôme naturel ${de}`,
         cssClass: 'arome-naturel-de-x',
-        details: `≥95% issu de ${dominant.source}`,
+        details: `≥95% issu ${de}`,
         sources,
       };
     }
     return {
-      label: `Arôme naturel de ${dominant.source} avec autres arômes naturels`,
+      label: `Arôme naturel ${de} avec autres arômes naturels`,
       cssClass: 'arome-naturel-de-x-avec-autres',
-      details: `${dominant.percentage.toFixed(1)}% issu de ${dominant.source}`,
+      details: `${dominant.percentage.toFixed(1)}% issu ${de}`,
       sources,
     };
   }
@@ -184,7 +217,7 @@ export function classifyFormula(trialData, ingredients) {
     label: 'Arôme naturel',
     cssClass: 'arome-naturel',
     details: "Mélange d'arômes naturels",
-    sources: [],
+    sources,
   };
 }
 
@@ -193,9 +226,14 @@ function analyzeSources(aromatisants) {
   if (totalQty === 0) return [];
 
   const sourcesMap = new Map();
+  let unsourcedQty = 0;
+
   for (const { ing, quantity } of aromatisants) {
     const src = (ing.sourceExtrait || '').trim().toLowerCase();
-    if (!src) continue;
+    if (!src) {
+      unsourcedQty += quantity;
+      continue;
+    }
     if (!sourcesMap.has(src)) {
       sourcesMap.set(src, { source: ing.sourceExtrait.trim(), quantity: 0, fromExtrait: false });
     }
@@ -204,7 +242,19 @@ function analyzeSources(aromatisants) {
     if (ing.isExtrait) entry.fromExtrait = true;
   }
 
-  return Array.from(sourcesMap.values())
+  const results = Array.from(sourcesMap.values())
     .map(s => ({ ...s, percentage: (s.quantity / totalQty) * 100 }))
     .sort((a, b) => b.percentage - a.percentage);
+
+  if (unsourcedQty > 0) {
+    results.push({
+      source: 'Autres substances',
+      quantity: unsourcedQty,
+      percentage: (unsourcedQty / totalQty) * 100,
+      fromExtrait: false,
+      isUnsourced: true,
+    });
+  }
+
+  return results;
 }

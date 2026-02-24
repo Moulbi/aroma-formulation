@@ -1,35 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Modal from '../common/Modal';
+import SearchableSelect, { highlightMatch } from '../common/SearchableSelect';
+import { searchIngredients } from '../../data/ingredientDatabase';
 import { INGREDIENT_TYPES, CLASSIFICATIONS } from '../../data/constants';
 
+const emptyForm = {
+  nom: '',
+  type: 'support',
+  classification: 'naturel',
+  isExtrait: false,
+  sourceExtrait: '',
+  prix: 0,
+  rgt: '',
+  densite: 1.0,
+  tauxVanilline: 0,
+};
+
 export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }) {
-  const [form, setForm] = useState({
-    nom: '',
-    type: 'support',
-    classification: 'naturel',
-    isExtrait: false,
-    sourceExtrait: '',
-    prix: 0,
-    rgt: '',
-    densite: 1.0,
-    tauxVanilline: 0,
-  });
+  const [form, setForm] = useState(emptyForm);
 
   useEffect(() => {
     if (ingredient) {
       setForm({ ...ingredient });
     } else {
-      setForm({
-        nom: '',
-        type: 'support',
-        classification: 'naturel',
-        isExtrait: false,
-        sourceExtrait: '',
-        prix: 0,
-        rgt: '',
-        densite: 1.0,
-        tauxVanilline: 0,
-      });
+      setForm(emptyForm);
     }
   }, [ingredient, isOpen]);
 
@@ -41,6 +35,34 @@ export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }
   };
 
   const update = (field, value) => setForm(f => ({ ...f, [field]: value }));
+
+  const handleIngredientSelect = useCallback((item) => {
+    setForm(f => ({
+      ...f,
+      nom: item.nom,
+      type: item.type,
+      classification: item.classification,
+      isExtrait: item.isExtrait,
+      sourceExtrait: item.sourceExtrait,
+      prix: item.prix,
+      rgt: item.rgt,
+      densite: item.densite,
+      tauxVanilline: item.tauxVanilline,
+    }));
+  }, []);
+
+  const renderIngredientItem = useCallback((item, query) => (
+    <div className="ss-item-content">
+      <div className="ss-item-name">{highlightMatch(item.nom, query)}</div>
+      <div className="ss-item-detail">
+        <span className={`ss-tag ${item.type}`}>
+          {item.type === 'support' ? 'Support' : 'Arom.'}
+        </span>
+        <span>{item.rgt}</span>
+        <span>{item.prix}€/kg</span>
+      </div>
+    </div>
+  ), []);
 
   return (
     <Modal
@@ -54,17 +76,25 @@ export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }
         </>
       }
     >
-      <div className="form-group">
+      <div className="form-group" style={{ marginBottom: '0.75rem' }}>
         <label className="form-label">Nom *</label>
-        <input className="form-input" value={form.nom} onChange={e => update('nom', e.target.value)} autoFocus />
+        <SearchableSelect
+          value={form.nom}
+          onChange={(text) => update('nom', text)}
+          onSelect={handleIngredientSelect}
+          searchFn={searchIngredients}
+          renderItem={renderIngredientItem}
+          placeholder="Rechercher une matière première..."
+          allowCustom={true}
+        />
       </div>
 
-      <div className="form-group">
+      <div className="form-group" style={{ marginBottom: '0.75rem' }}>
         <label className="form-label">N° Règlement *</label>
         <input className="form-input" value={form.rgt} onChange={e => update('rgt', e.target.value)} placeholder="Ex: SUP001" />
       </div>
 
-      <div className="form-group">
+      <div className="form-group" style={{ marginBottom: '0.75rem' }}>
         <label className="form-label">Type</label>
         <div style={{ display: 'flex', gap: '0.5rem' }}>
           {Object.entries(INGREDIENT_TYPES).map(([key, { label, color }]) => (
@@ -81,7 +111,7 @@ export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }
         </div>
       </div>
 
-      <div className="form-group">
+      <div className="form-group" style={{ marginBottom: '0.75rem' }}>
         <label className="form-label">Classification</label>
         <select className="form-select" value={form.classification} onChange={e => update('classification', e.target.value)}>
           {Object.entries(CLASSIFICATIONS).map(([key, label]) => (
@@ -90,7 +120,7 @@ export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }
         </select>
       </div>
 
-      <div className="form-group">
+      <div className="form-group" style={{ marginBottom: '0.75rem' }}>
         <label className="form-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <input
             type="checkbox"
@@ -102,7 +132,7 @@ export default function IngredientForm({ isOpen, onClose, onSubmit, ingredient }
       </div>
 
       {form.isExtrait && (
-        <div className="form-group">
+        <div className="form-group" style={{ marginBottom: '0.75rem' }}>
           <label className="form-label">Source X</label>
           <input className="form-input" value={form.sourceExtrait} onChange={e => update('sourceExtrait', e.target.value)} placeholder="Ex: vanille, citron" />
         </div>

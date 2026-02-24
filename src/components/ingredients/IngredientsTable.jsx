@@ -1,9 +1,56 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { useFormulation } from '../../contexts/FormulationContext';
-import { Plus, Settings, Trash2, Scale, Check, ChevronLeft, ChevronRight, Copy, PlusCircle } from 'lucide-react';
+import { Plus, Trash2, Scale, Check, ChevronLeft, ChevronRight, Copy, PlusCircle } from 'lucide-react';
 import { DILUTION_OPTIONS, TRIALS_PER_PAGE } from '../../data/constants';
 import { calculateQSP } from '../../utils/calculations';
-import IngredientForm from './IngredientForm';
+import SearchableSelect, { highlightMatch } from '../common/SearchableSelect';
+import { searchIngredients } from '../../data/ingredientDatabase';
+
+function MassInput({ value, onChange, readOnly, disabled, isQsp }) {
+  const [local, setLocal] = useState('');
+  const [focused, setFocused] = useState(false);
+
+  const display = focused ? local : (value || '');
+
+  const handleFocus = (e) => {
+    setLocal(value ? String(value) : '');
+    setFocused(true);
+    e.target.select();
+  };
+
+  const handleChange = (e) => {
+    const v = e.target.value;
+    if (v === '' || /^\d*\.?\d*$/.test(v)) {
+      setLocal(v);
+    }
+  };
+
+  const handleBlur = () => {
+    setFocused(false);
+    const mass = parseFloat(local) || 0;
+    onChange(mass);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') e.target.blur();
+  };
+
+  return (
+    <input
+      type="text"
+      inputMode="decimal"
+      className={`trial-input ${isQsp ? 'qsp' : ''}`}
+      value={isQsp ? (typeof value === 'number' ? value.toFixed(3) : value) : display}
+      onChange={handleChange}
+      onFocus={readOnly ? undefined : handleFocus}
+      onBlur={handleBlur}
+      onKeyDown={handleKeyDown}
+      readOnly={readOnly}
+      disabled={disabled}
+      placeholder="0.000"
+    />
+  );
+}
 
 function getDilutionClass(dilution) {
   if (dilution >= 1) return 'd-100';
@@ -15,17 +62,67 @@ function getDilutionClass(dilution) {
   return 'd-00001';
 }
 
+function MPCell({ ing, isQsp, actions, onSelectFromBDD }) {
+  const handleSelect = useCallback((item) => {
+    onSelectFromBDD(ing.id, item);
+  }, [ing.id, onSelectFromBDD]);
+
+  const renderItem = useCallback((item, query) => (
+    <div className="ss-item-content">
+      <div className="ss-item-name">{highlightMatch(item.nom, query)}</div>
+      <div className="ss-item-detail">
+        <span className={`ss-tag ${item.type}`}>
+          {item.type === 'support' ? 'Support' : 'Aromatisant'}
+        </span>
+        <span>{item.rgt}</span>
+        <span>{item.prix}€/kg</span>
+      </div>
+    </div>
+  ), []);
+
+  return (
+    <td className="mp-cell">
+      <div className="mp-cell-inner">
+        <div className="mp-cell-select">
+          <SearchableSelect
+            value={ing.nom}
+            onChange={(text) => actions.updateIngredient({ ...ing, nom: text })}
+            onSelect={handleSelect}
+            searchFn={searchIngredients}
+            renderItem={renderItem}
+            placeholder="Rechercher MP..."
+            allowCustom={true}
+          />
+        </div>
+        <div className="mp-cell-actions">
+          <button
+            className={`qsp-btn ${isQsp ? 'active' : 'inactive'}`}
+            onClick={() => actions.setQSPIngredient(isQsp ? null : ing.id)}
+            title={isQsp ? 'Retirer QSP' : 'Définir comme QSP'}
+          >
+            QSP
+          </button>
+          <button
+            className="btn-icon btn-icon-sm"
+            onClick={() => actions.deleteIngredient(ing.id)}
+            title="Supprimer"
+            style={{ color: 'var(--color-danger)' }}
+          >
+            <Trash2 size={13} />
+          </button>
+        </div>
+      </div>
+    </td>
+  );
+}
+
 export default function IngredientsTable() {
   const { state, actions } = useFormulation();
   const { ingredients, trials, activeTrialCount, qspIngredientId, ui } = state;
   const { selectedTrial, currentTrialPage } = ui;
 
-  const [showForm, setShowForm] = useState(false);
-  const [editingIngredient, setEditingIngredient] = useState(null);
-
   const currentTrial = trials[selectedTrial];
 
-  // Visible trials for current page
   const visibleTrials = useMemo(() => {
     const start = currentTrialPage * TRIALS_PER_PAGE + 1;
     const end = Math.min(start + TRIALS_PER_PAGE - 1, activeTrialCount);
@@ -36,23 +133,12 @@ export default function IngredientsTable() {
 
   const maxPages = Math.ceil(activeTrialCount / TRIALS_PER_PAGE);
 
-  // QSP calculation for selected trial
   const qspValue = useMemo(() => {
     if (!currentTrial || !qspIngredientId) return 0;
     return calculateQSP(currentTrial.data, ingredients, qspIngredientId, currentTrial.targetMass);
   }, [currentTrial, ingredients, qspIngredientId]);
 
-  const handleSaveIngredient = useCallback((data) => {
-    if (editingIngredient) {
-      actions.updateIngredient({ ...data, id: editingIngredient.id });
-    } else {
-      actions.addIngredient(data);
-    }
-    setEditingIngredient(null);
-  }, [editingIngredient, actions]);
-
-  const handleMassChange = useCallback((trialNum, ingredientId, value) => {
-    const mass = parseFloat(value) || 0;
+  const handleMassCommit = useCallback((trialNum, ingredientId, mass) => {
     actions.setIngredientMass(trialNum, ingredientId, mass);
   }, [actions]);
 
@@ -60,24 +146,58 @@ export default function IngredientsTable() {
     actions.setIngredientDilution(trialNum, ingredientId, parseFloat(value));
   }, [actions]);
 
-  const handleCopyTrial = useCallback((fromNum) => {
-    const toNum = fromNum + 1;
-    if (toNum > activeTrialCount) {
-      // Add a new trial first
-      actions.addTrial();
-      setTimeout(() => actions.copyTrial(fromNum, toNum), 0);
-    } else {
-      actions.copyTrial(fromNum, toNum);
-    }
-    actions.notify('success', `${trials[fromNum]?.name || `Essai ${fromNum}`} copié`);
-  }, [activeTrialCount, actions, trials]);
+  const [copyMenuOpen, setCopyMenuOpen] = useState(null);
+
+  useEffect(() => {
+    if (copyMenuOpen === null) return;
+    const close = () => setCopyMenuOpen(null);
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, [copyMenuOpen]);
+
+  const handleCopyFrom = useCallback((fromNum, toNum) => {
+    actions.copyTrial(fromNum, toNum);
+    actions.notify('success', `${trials[fromNum]?.name || `Essai ${fromNum}`} → ${trials[toNum]?.name || `Essai ${toNum}`}`);
+    setCopyMenuOpen(null);
+  }, [actions, trials]);
+
+  // When a BDD ingredient is selected in a row, update all properties
+  const handleSelectFromBDD = useCallback((ingredientId, item) => {
+    actions.updateIngredient({
+      id: ingredientId,
+      nom: item.nom,
+      type: item.type,
+      classification: item.classification,
+      isExtrait: item.isExtrait,
+      sourceExtrait: item.sourceExtrait,
+      prix: item.prix,
+      rgt: item.rgt,
+      densite: item.densite,
+      tauxVanilline: item.tauxVanilline,
+    });
+  }, [actions]);
+
+  // Add a new empty row
+  const handleAddRow = useCallback(() => {
+    actions.addIngredient({
+      nom: '',
+      type: 'support',
+      classification: 'naturel',
+      isExtrait: false,
+      sourceExtrait: '',
+      prix: 0,
+      rgt: '',
+      densite: 1.0,
+      tauxVanilline: 0,
+    });
+  }, [actions]);
 
   return (
     <>
       {/* Toolbar */}
       <div className="toolbar">
-        <button className="btn btn-primary btn-sm" onClick={() => { setEditingIngredient(null); setShowForm(true); }}>
-          <Plus size={14} /> Ajouter MP
+        <button className="btn btn-primary btn-sm" onClick={handleAddRow}>
+          <Plus size={14} /> Ajouter ligne
         </button>
         <button className="btn btn-outline btn-sm" onClick={actions.addTrial} disabled={activeTrialCount >= 10}>
           <PlusCircle size={14} /> Ajouter essai
@@ -85,7 +205,6 @@ export default function IngredientsTable() {
 
         <div className="toolbar-spacer" />
 
-        {/* Trial pagination */}
         <div className="trial-pagination">
           <button className="btn-icon" onClick={() => actions.setTrialPage(currentTrialPage - 1)} disabled={currentTrialPage === 0}>
             <ChevronLeft size={16} />
@@ -96,19 +215,18 @@ export default function IngredientsTable() {
           </button>
         </div>
 
-        {/* Target mass */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.85rem' }}>
-          <label>Masse cible:</label>
+        <div className="target-mass-pill">
+          <Scale size={16} />
+          <label>Masse cible</label>
           <input
             type="number"
-            className="form-input"
-            style={{ width: 80 }}
+            className="target-mass-input"
             value={currentTrial?.targetMass ?? 100}
             onChange={e => actions.setTrialTargetMass(selectedTrial, parseFloat(e.target.value) || 100)}
             min={1}
             max={10000}
           />
-          <span>g</span>
+          <span className="target-mass-unit">g</span>
         </div>
       </div>
 
@@ -117,7 +235,7 @@ export default function IngredientsTable() {
         <table className="formulation-table">
           <thead>
             <tr>
-              <th className="mp-cell">Matière première</th>
+              <th className="mp-header">Matière première</th>
               <th className="rgt-cell">RGT</th>
               {visibleTrials.map(num => (
                 <th
@@ -125,7 +243,7 @@ export default function IngredientsTable() {
                   className={`trial-header ${num === selectedTrial ? 'active' : ''}`}
                   onClick={() => actions.selectTrial(num)}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.35rem', position: 'relative' }}>
                     <span
                       style={{ cursor: 'text' }}
                       onClick={(e) => {
@@ -139,11 +257,28 @@ export default function IngredientsTable() {
                     <button
                       className="btn-icon"
                       style={{ color: 'inherit', padding: '0.1rem' }}
-                      onClick={(e) => { e.stopPropagation(); handleCopyTrial(num); }}
-                      title="Copier vers essai suivant"
+                      onClick={(e) => { e.stopPropagation(); setCopyMenuOpen(copyMenuOpen === num ? null : num); }}
+                      title="Copier depuis un autre essai"
                     >
                       <Copy size={12} />
                     </button>
+                    {copyMenuOpen === num && (
+                      <div className="copy-menu" onClick={e => e.stopPropagation()}>
+                        <div className="copy-menu-title">Copier depuis :</div>
+                        {Array.from({ length: activeTrialCount }, (_, i) => i + 1)
+                          .filter(n => n !== num)
+                          .map(fromNum => (
+                            <button
+                              key={fromNum}
+                              className="copy-menu-item"
+                              onClick={() => handleCopyFrom(fromNum, num)}
+                            >
+                              {trials[fromNum]?.name || `Essai ${fromNum}`}
+                            </button>
+                          ))
+                        }
+                      </div>
+                    )}
                   </div>
                 </th>
               ))}
@@ -159,42 +294,21 @@ export default function IngredientsTable() {
                   key={ing.id}
                   className={`ingredient-row ${ing.type} ${isQsp ? 'qsp' : ''} ${isWeighed ? 'row-weighed' : ''}`}
                 >
-                  {/* MP cell */}
-                  <td className="mp-cell">
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                      <span style={{ flex: 1, fontSize: '0.85rem' }}>{ing.nom}</span>
-                      <button
-                        className={`btn-icon ${isQsp ? '' : ''}`}
-                        style={isQsp ? { color: 'var(--color-primary)', fontWeight: 700, fontSize: '0.7rem', padding: '0.15rem 0.35rem', background: 'var(--color-primary-light)', borderRadius: '4px' } : { fontSize: '0.65rem', padding: '0.15rem 0.35rem', opacity: 0.5 }}
-                        onClick={() => actions.setQSPIngredient(isQsp ? null : ing.id)}
-                        title={isQsp ? 'Retirer QSP' : 'Définir comme QSP'}
-                      >
-                        QSP
-                      </button>
-                      <button className="btn-icon" onClick={() => { setEditingIngredient(ing); setShowForm(true); }} title="Modifier">
-                        <Settings size={14} />
-                      </button>
-                      <button className="btn-icon" onClick={() => actions.deleteIngredient(ing.id)} title="Supprimer" style={{ color: 'var(--color-danger)' }}>
-                        <Trash2 size={14} />
-                      </button>
-                    </div>
-                  </td>
+                  <MPCell
+                    ing={ing}
+                    isQsp={isQsp}
+                    actions={actions}
+                    onSelectFromBDD={handleSelectFromBDD}
+                  />
 
-                  {/* RGT */}
                   <td className="rgt-cell">{ing.rgt || '-'}</td>
 
-                  {/* Trial cells */}
                   {visibleTrials.map(trialNum => {
                     const trial = trials[trialNum];
                     const cellData = trial?.data?.[ing.id] || { mass: 0, dilution: 1 };
                     const isActive = trialNum === selectedTrial;
                     const isQspCell = isQsp;
                     const trialWeighed = trial?.weighedStates?.[ing.id];
-
-                    // For QSP, show calculated value for selected trial
-                    const displayMass = isQspCell && isActive
-                      ? qspValue
-                      : (cellData.mass || '');
 
                     return (
                       <td key={trialNum} className={`trial-cell ${isActive ? 'active' : ''} ${isQspCell ? 'qsp-row' : ''}`}>
@@ -210,16 +324,12 @@ export default function IngredientsTable() {
                             ))}
                           </select>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }}>
-                            <input
-                              type="number"
-                              className={`trial-input ${isQspCell ? 'qsp' : ''}`}
-                              value={isQspCell && isActive ? qspValue.toFixed(3) : (cellData.mass || '')}
-                              onChange={e => handleMassChange(trialNum, ing.id, e.target.value)}
+                            <MassInput
+                              value={isQspCell && isActive ? qspValue : (cellData.mass || '')}
+                              onChange={mass => handleMassCommit(trialNum, ing.id, mass)}
                               readOnly={isQspCell}
                               disabled={!isActive && !isQspCell}
-                              step="0.001"
-                              min="0"
-                              placeholder="0.000"
+                              isQsp={isQspCell && isActive}
                             />
                             {isActive && (
                               <button
@@ -241,13 +351,6 @@ export default function IngredientsTable() {
           </tbody>
         </table>
       </div>
-
-      <IngredientForm
-        isOpen={showForm}
-        onClose={() => { setShowForm(false); setEditingIngredient(null); }}
-        onSubmit={handleSaveIngredient}
-        ingredient={editingIngredient}
-      />
     </>
   );
 }

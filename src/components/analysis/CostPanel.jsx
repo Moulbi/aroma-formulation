@@ -5,12 +5,22 @@ import { Euro, TrendingUp } from 'lucide-react';
 
 export default function CostPanel() {
   const { state, actions } = useFormulation();
-  const { trials, ingredients, ui } = state;
+  const { trials, ingredients, qspIngredientId, ui } = state;
   const { selectedTrial, pricingMode, pricingFactor } = ui;
   const trial = trials[selectedTrial];
 
-  const costs = useMemo(() => calculateTrialCost(trial?.data, ingredients), [trial?.data, ingredients]);
-  const salePrice = useMemo(() => calculateSalePrice(costs.total, pricingFactor), [costs.total, pricingFactor]);
+  const costs = useMemo(
+    () => calculateTrialCost(trial?.data, ingredients, qspIngredientId, trial?.targetMass),
+    [trial?.data, ingredients, qspIngredientId, trial?.targetMass]
+  );
+
+  // Coût au kg = coût total / masse cible en kg
+  const targetMassKg = (trial?.targetMass || 0) / 1000;
+  const costPerKg = targetMassKg > 0 ? costs.total / targetMassKg : 0;
+  const supportPerKg = targetMassKg > 0 ? costs.support / targetMassKg : 0;
+  const aromaticPerKg = targetMassKg > 0 ? costs.aromatic / targetMassKg : 0;
+
+  const salePricePerKg = useMemo(() => calculateSalePrice(costPerKg, pricingFactor), [costPerKg, pricingFactor]);
 
   return (
     <div className="panel">
@@ -18,15 +28,15 @@ export default function CostPanel() {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.75rem', marginBottom: '0.75rem' }}>
         <div>
-          <div className="analysis-value">{costs.total.toFixed(2)}<span className="analysis-unit">EUR</span></div>
+          <div className="analysis-value">{costPerKg.toFixed(2)}<span className="analysis-unit">EUR/kg</span></div>
           <div className="analysis-label">Coût total</div>
         </div>
         <div>
-          <div className="analysis-value" style={{ fontSize: '1rem', color: 'var(--color-success)' }}>{costs.support.toFixed(2)}<span className="analysis-unit">EUR</span></div>
+          <div className="analysis-value" style={{ fontSize: '1rem', color: 'var(--color-success)' }}>{supportPerKg.toFixed(2)}<span className="analysis-unit">EUR/kg</span></div>
           <div className="analysis-label">Supports</div>
         </div>
         <div>
-          <div className="analysis-value" style={{ fontSize: '1rem', color: 'var(--color-warning)' }}>{costs.aromatic.toFixed(2)}<span className="analysis-unit">EUR</span></div>
+          <div className="analysis-value" style={{ fontSize: '1rem', color: 'var(--color-warning)' }}>{aromaticPerKg.toFixed(2)}<span className="analysis-unit">EUR/kg</span></div>
           <div className="analysis-label">Aromatisants</div>
         </div>
       </div>
@@ -57,14 +67,14 @@ export default function CostPanel() {
       {pricingMode === 'sale_price' ? (
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
           <TrendingUp size={16} style={{ color: 'var(--color-primary)' }} />
-          <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>{salePrice.toFixed(2)} EUR</span>
+          <span style={{ fontSize: '1.1rem', fontWeight: 700 }}>{salePricePerKg.toFixed(2)} EUR/kg</span>
           <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
             (marge {((pricingFactor - 1) * 100).toFixed(0)}%)
           </span>
         </div>
       ) : (
         <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-          Coût cible : {costs.total > 0 ? (costs.total / pricingFactor).toFixed(2) : '0.00'} EUR
+          Coût cible : {costPerKg > 0 ? (costPerKg / pricingFactor).toFixed(2) : '0.00'} EUR/kg
         </div>
       )}
     </div>

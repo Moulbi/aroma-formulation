@@ -5,11 +5,17 @@ import { Beaker, Droplets } from 'lucide-react';
 
 export default function TechnicalPanel() {
   const { state } = useFormulation();
-  const { trials, ingredients, ui } = state;
+  const { trials, ingredients, qspIngredientId, ui } = state;
   const trial = trials[ui.selectedTrial];
 
-  const density = useMemo(() => calculateDensity(trial?.data, ingredients), [trial?.data, ingredients]);
-  const vanillin = useMemo(() => calculateVanillinProfile(trial?.data, ingredients), [trial?.data, ingredients]);
+  const density = useMemo(
+    () => calculateDensity(trial?.data, ingredients, qspIngredientId, trial?.targetMass),
+    [trial?.data, ingredients, qspIngredientId, trial?.targetMass]
+  );
+  const vanillin = useMemo(
+    () => calculateVanillinProfile(trial?.data, ingredients, qspIngredientId, trial?.targetMass),
+    [trial?.data, ingredients, qspIngredientId, trial?.targetMass]
+  );
 
   return (
     <div className="panel">

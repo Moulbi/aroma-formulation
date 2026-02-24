@@ -7,17 +7,32 @@ import ClassificationBadge from './components/analysis/ClassificationBadge';
 import TechnicalPanel from './components/analysis/TechnicalPanel';
 import SensoryPanel from './components/sensory/SensoryPanel';
 import TrialNotes from './components/trials/TrialNotes';
+import WeighingMode from './components/weighing/WeighingMode';
 import Notification from './components/common/Notification';
-import { FlaskConical, Save, RotateCcw } from 'lucide-react';
+import { FlaskConical, Save, RotateCcw, Scale } from 'lucide-react';
 
 function AppContent() {
   const { state, actions } = useFormulation();
+
+  if (state.ui.weighingMode) {
+    return (
+      <div className="app">
+        <WeighingMode />
+        {state.ui.notification && (
+          <Notification type={state.ui.notification.type} message={state.ui.notification.message} />
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="app">
       <header className="app-header">
         <h1><FlaskConical size={20} /> Fiche de Formulation</h1>
         <div className="toolbar-spacer" />
+        <button className="btn btn-primary btn-sm" onClick={actions.toggleWeighingMode}>
+          <Scale size={14} /> Pesée
+        </button>
         <button className="btn btn-primary btn-sm" onClick={() => actions.notify('success', 'Données sauvegardées')}>
           <Save size={14} /> Sauvegarder
         </button>
@@ -49,10 +64,7 @@ function AppContent() {
       </main>
 
       {state.ui.notification && (
-        <Notification
-          type={state.ui.notification.type}
-          message={state.ui.notification.message}
-        />
+        <Notification type={state.ui.notification.type} message={state.ui.notification.message} />
       )}
     </div>
   );

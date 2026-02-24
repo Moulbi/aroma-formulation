@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import { generateId, today } from '../utils/helpers';
-import { saveToStorage, loadFromStorage } from '../utils/persistence';
+import { saveToStorage, loadFromStorage, clearStorage } from '../utils/persistence';
 import { DEFAULT_INGREDIENTS, DEFAULT_SENSORY_DESCRIPTORS, DEFAULT_RESPONSIBLES, MAX_TRIALS } from '../data/constants';
 
 const StateContext = createContext(null);
@@ -19,7 +19,9 @@ function createEmptyTrial(num) {
 
 function buildInitialState() {
   const trials = {};
-  trials[1] = createEmptyTrial(1);
+  for (let i = 1; i <= 5; i++) {
+    trials[i] = createEmptyTrial(i);
+  }
 
   return {
     projectInfo: {
@@ -32,8 +34,8 @@ function buildInitialState() {
     },
     ingredients: [...DEFAULT_INGREDIENTS],
     trials,
-    activeTrialCount: 1,
-    qspIngredientId: null,
+    activeTrialCount: 5,
+    qspIngredientId: DEFAULT_INGREDIENTS[0]?.id || null,
     sensoryDescriptors: [...DEFAULT_SENSORY_DESCRIPTORS],
     existingReferences: [],
     projectResponsibles: [...DEFAULT_RESPONSIBLES],
