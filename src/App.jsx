@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FormulationProvider, useFormulation } from './contexts/FormulationContext';
 import Header from './components/layout/Header';
 import IngredientsTable from './components/ingredients/IngredientsTable';
@@ -9,9 +9,14 @@ import SensoryPanel from './components/sensory/SensoryPanel';
 import TrialNotes from './components/trials/TrialNotes';
 import WeighingMode from './components/weighing/WeighingMode';
 import Notification from './components/common/Notification';
-import { FlaskConical, Save, RotateCcw, Scale } from 'lucide-react';
+import SheetsList from './components/home/SheetsList';
+import { migrateIfNeeded, cleanEmptySheet } from './utils/persistence';
+import { FlaskConical, Save, RotateCcw, Scale, ArrowLeft } from 'lucide-react';
 
-function AppContent() {
+// Migration au premier chargement
+migrateIfNeeded();
+
+function AppContent({ onBack }) {
   const { state, actions } = useFormulation();
 
   if (state.ui.weighingMode) {
@@ -28,6 +33,9 @@ function AppContent() {
   return (
     <div className="app">
       <header className="app-header">
+        <button className="btn btn-outline btn-sm" onClick={onBack} title="Retour à l'accueil">
+          <ArrowLeft size={14} /> Fiches
+        </button>
         <h1><FlaskConical size={20} /> Fiche de Formulation</h1>
         <div className="toolbar-spacer" />
         <button className="btn btn-primary btn-sm" onClick={actions.toggleWeighingMode}>
@@ -71,9 +79,28 @@ function AppContent() {
 }
 
 export default function App() {
+  const [currentView, setCurrentView] = useState('home');
+
+  const handleOpen = (sheetId) => {
+    setCurrentView({ sheet: sheetId });
+  };
+
+  const handleBack = () => {
+    // Nettoyer la fiche si elle est restée vide
+    if (currentView?.sheet) {
+      cleanEmptySheet(currentView.sheet);
+    }
+    setCurrentView('home');
+  };
+
+  if (currentView === 'home') {
+    return <SheetsList onOpen={handleOpen} />;
+  }
+
+  // key={currentView.sheet} force le remontage du Provider quand on change de fiche
   return (
-    <FormulationProvider>
-      <AppContent />
+    <FormulationProvider key={currentView.sheet} sheetId={currentView.sheet}>
+      <AppContent onBack={handleBack} />
     </FormulationProvider>
   );
 }

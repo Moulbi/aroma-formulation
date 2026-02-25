@@ -19,17 +19,9 @@ export const CLASSIFICATIONS = {
 };
 
 export const MAX_TRIALS = 10;
-export const TRIALS_PER_PAGE = 4;
+export const TRIALS_PER_PAGE = 5;
 
-export const DEFAULT_INGREDIENTS = [
-  { id: 'mp-1', nom: 'Alcool éthylique 96°', type: 'support', classification: 'naturel', isExtrait: false, sourceExtrait: '', prix: 2.50, rgt: 'SUP001', densite: 0.789, tauxVanilline: 0, order: 0 },
-  { id: 'mp-2', nom: 'Propylène glycol', type: 'support', classification: 'synthetique', isExtrait: false, sourceExtrait: '', prix: 3.20, rgt: 'SUP002', densite: 1.036, tauxVanilline: 0, order: 1 },
-  { id: 'mp-3', nom: 'Extrait de vanille', type: 'aromatisant', classification: 'naturel', isExtrait: true, sourceExtrait: 'vanille', prix: 200.00, rgt: 'EXT001', densite: 0.920, tauxVanilline: 0.8, order: 2 },
-  { id: 'mp-4', nom: 'Vanilline naturelle', type: 'aromatisant', classification: 'naturel', isExtrait: false, sourceExtrait: '', prix: 120.00, rgt: 'SAR001', densite: 1.056, tauxVanilline: 100, order: 3 },
-  { id: 'mp-5', nom: 'HE Amande amère', type: 'aromatisant', classification: 'naturel', isExtrait: true, sourceExtrait: 'amande', prix: 250.00, rgt: 'EXT002', densite: 0.960, tauxVanilline: 0, order: 4 },
-  { id: 'mp-6', nom: 'Benzaldéhyde naturel', type: 'aromatisant', classification: 'naturel', isExtrait: false, sourceExtrait: '', prix: 85.00, rgt: 'SAR002', densite: 1.044, tauxVanilline: 0, order: 5 },
-  { id: 'mp-7', nom: 'Vanilline synthétique', type: 'aromatisant', classification: 'synthetique', isExtrait: false, sourceExtrait: '', prix: 25.00, rgt: 'SAS001', densite: 1.056, tauxVanilline: 100, order: 6 },
-];
+export const DEFAULT_INGREDIENTS = [];
 
 export const SENSORY_PRESETS = {
   vanilla: {

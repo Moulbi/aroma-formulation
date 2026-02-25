@@ -57,6 +57,9 @@ function WeighingItem({ ing, isQsp, mass, dilution, isWeighed, selectedTrial, ac
       </div>
 
       <div className="weighing-item-info">
+        {ing.rgt && (
+          <div className="weighing-item-ref">{ing.rgt}</div>
+        )}
         <div className="weighing-item-name">
           {ing.nom || 'Sans nom'}
           {isQsp && <span className="weighing-qsp-badge">QSP</span>}
@@ -64,7 +67,7 @@ function WeighingItem({ ing, isQsp, mass, dilution, isWeighed, selectedTrial, ac
         <div className="weighing-item-meta">
           {ing.type === 'support' ? 'Support' : 'Aromatisant'}
           {dilution < 1 && ` · Dil. ${(dilution * 100).toFixed(dilution >= 0.01 ? 0 : 2)}%`}
-          {ing.rgt && ` · ${ing.rgt}`}
+          {ing.prix > 0 && ` · ${ing.prix} €/kg`}
         </div>
       </div>
 

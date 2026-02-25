@@ -1,0 +1,810 @@
+ref;name;cas;quantity;price;type;classification
+A2115NL;Extrait de vanille Shanks concentré *;-;0;1366
+A2116NL;Concentré de vanille;-;83286;36.42
+A3005NL;Extrait de vanille;;0;7.87
+A3135NL;Arôme naturel de vanille;;0;11
+A3148NP;Gateaux SLB séchés (retour extractis);;0;8
+A4092NL;Concentré A4091NL;;0;300
+BLA0485;3X Organic Vanilla Extract 3X 35% ETOH v/v * ;;0;195.63;aromatisant
+BLA0492;Ethanol 96° BIO;64-17-5;478557;3.86;support
+BPA0491;Sucre bio;;987350.015;1.89
+BSA0487;Huile coco désodorisée BIO ;;23000;8.9
+C1050NL;Coffee extract;-;0;4
+C1078NL;Coffee extract;-;0;0
+DLA0135;Tolu Baume 50% EtOH *;9000-64-0;9591.145;81
+DLF0472;Infusion amoreno dilué sur glycerine (retour extractis);;239650;0
+DP16026;Natural vanilla flavor;-;0;16.39
+DP16027;Concentré vanille;-;0;1.83
+DP16038;Cœur lait;-;0;4.73
+F1116NL;Arôme naturel goût citron;-;0;16.45
+FLV0377;Tobacco flavor LUXHILL 25.105 ;-;0;42.5
+FLV0379;Arôme rhum E1321194* 87,5%;-;3820;21.75
+ILA0074K;Propylene Glycol;57-55-6;3264034.8600000003;2.26
+ILA0075K;Glycerine ;56-81-5;1513015.2150000003;1.79
+ILA0076;Triacétine;102-76-1;925319.249;5.05
+ILA0077K;Caramel C22;-;554774.784;1.85
+ILA0078;TCM;73398-61-5;134587.51999999996;6.12
+ILA0079K;Caramel SLB129;-;14775.583;2.27
+ILA0080K;Caramel SCN2;-;74000;1.53
+ILA0082E;Ethanol 96° - Entrepositaire Agrée;64-17-5;2159847.497;2.57
+ILA0084K;Caramel SLB 725S;-;334765.39599999995;1.83
+ILA0086K;Onctiloise;-;0;0.84
+ILA0354;Eau purifié ;-;26447.856129999996;6.12
+ILA0385K;Sirop de glucose ;-;1321229.75;1.4
+ILA0479K;Caramel aromatique 1395 SMA6 ;;0;0
+IPA0083K;Caramel GR5S4;-;131076.78;7.96
+IPA0295K;Fructose poudre;57-48-7;173647.46399999998;1.42
+IPA0296K;Sucre semoule ;-;10974237.517;0.89
+IPA0301 ;Sucralose;56038-13-2;92.23799999999991;99.86
+IPA0302K;Acide malique (DL);6915-15-7;2491.435;72.73
+IPA0309;WS-23 (agent rafraichissant);51115-67-4 ;22473.612000000016;134.6
+IPA0336K;Dextrose;14431-43-7 ; 77938-63-7;6550837.078999986;1.27
+IPA0381;Caramel GR5S4 remplacé par IPA0083;-;0;4.13
+IPA0409K;Amidon de maïs ;-;749595.0470000003;1.95
+GVGB0410K;Gousse de vanille loose beans  BIO (Madagascar);-;618411.805;304.61
+IPA0433K;Alginate de sodium;9005-38-3;14635;23.54
+IPA0435;Sucre glace;-;821457.5;1.22
+IPA0436;Sucre extra fin;57-50-1;3549901.211;1.08
+IPA0437K;Suc de Réglisse;68916-91-6;41379.947999999946;12
+IPA0438K;Glucidex IT12W;-;939860.979;2.47
+IPA0445;Gomme xanthane 80;11138-66-2;8560.4;27.57
+GVG0470;Gousses de vanille Madagascar ;;0;124.17
+IPA0490;Sorbate de potassium;590-00-1;97.875;14.95
+NLA0073K;Eau;-;2090740366.804453;0
+NLA0087K;Benzaldéhyde naturel;100-52-7;461.62799999999993;161.13
+NLA0088K;Delta-décalactone naturel;705-86-2;41.094;1760
+NLA0089;Octalactone gamma naturel;104-50-7;464.04;700
+NLA0090K;Anisaldéhyde naturel;123-11-5;2406.065;115
+NLA0095K;Anisyl alcool naturel;105-13-5;2508.908;227.06
+NLA0096K;Bergamote Italie essence *;8007-75-8;223.315;176.82
+NLA0097K;Ethyl Nonanoate naturel ;123-29-5;3.16;550
+NLA0099K;Ethyl hexanoate naturel ;123-66-0;2000.0799999999988;16.26
+NLA0100K;Nérolidol naturel;7212-44-4;448.86;491.99
+NLA0101;Ambrettolide naturel;7779-50-2;16.102999999999994;4015.56
+NLA0102K;Octyl butyrate naturel;110-39-4;13;584
+NLA0104K;Géraniol naturel (HE Palmarosa rectif.);8014-19-5;682.4500000000002;292.85
+NLA0105K;Jasmin (Egypte) absolue;8022-96-6;94.102;4750
+NLA0106K;Octanoic acid naturel;124-07-2;919.38;42
+NLA0107K;Basilic essence extra;8015-73-4;927.97;195
+NLA0108K;Litsea Cubeba HE (Chine);68855-99-2 ; 90063-59-5;724.0349999999999;58.19
+NLA0109K;Menthe poivrée HE;8006-90-4;1032.3929999999998;45
+NLA0110K;Menthyl Acetate Naturel;16409-45-3;468.379;166.77
+NLA0111K;Acétate de cis-3-hexènyle naturel *;3681-71-8;513.467;512.28
+NLA0112;Amande Amere HE;8013-76-1;4453.273999999999;595
+NLA0113K;Poivre Noir essence ;8006-82-4;856.6840000000001;145
+NLF0115K;Davana essence extra;8016-03-3;59.162;850
+NLA0116K;Gingembre essence;8007-08-7;1034.592;94.67
+NLA0117K;Methyl heptyl cetone naturel;821-55-6;0;0
+NLA0118K;Acétate de phénéthyle naturel;103-45-7;92.9;3455.94
+NLA0119K;Phenyl ethyl alcool naturel;60-12-8;54.386;912
+NLF0120K;Limette distillée HE *;8008-26-2;4378.577;109.78
+NLA0121K;Cassis Bourgeons Absolu ;68606-81-5;80.915;3100
+NLA0123K;Methyl anthranylate naturel ;134-20-3;147.59700000000004;1388.25
+NLA0124K;Coffee Oil Real Cafe;-;99900;85
+NLA0125K;Octanal naturel;124-13-0;9.68;609
+NLA0127K;Liveche Racines essence extra;8016-31-7;0;1800
+NLA0128K;Cannelle Ceylan essence;8015-91-6;379.438;199.09
+NLA0129K;Benzyl acetate naturel;140-11-4;32.52500000000001;178.2
+NLA0130K;Ethyl isovalerate Naturel;108-64-5;667.3449999999998;24
+NLA0131K;CRM arome naturel ;-;23868;32.46
+NLA0132K;Acétate d'hexyle naturel *;142-92-7;512.923;79.59
+NLA0134K;Flouve essence 89,3° *;68916-09-6;571.276;2010
+NLA0136K;Linalol naturel;78-70-6;1403.0820000000003;95.91
+NLA0137K;Acétate d'isoamyle naturel *;123-92-2;3512.3240000000005;28.45
+NLA0138K;Isobutyl alcool naturel;78-83-1;100.79399999999998;61.01
+NLA0140K;Eugenol naturel;97-53-0;619.4319999999999;71
+NLA0142K;Acide acétique naturel *;64-19-7;3458.869000000001;16
+NLA0143K;Propionic acid naturel;79-09-4;907.0170000000002;32.5
+NLA0144K;Anethol Naturel;104-46-1;1282.837;108
+NLA0145K;Butyrate d'isoamyle naturel *;106-27-4;1228.8640000000005;126.82
+NLA0146K;Anisyl acetate naturel ;104-21-2;621;390
+NLA0147K;Massoia lactone naturel;54814-64-1;82.452;1290
+NLA0148K;Méthyl nonyl cétone naturel;112-12-9;98.52;1239.38
+NLA0149K;Rhum Extrait CO2 *;91770-72-8;150;9888.64
+NLA0150K;Guaiacol naturel ;90-05-1;947.972;62
+NLA0151K;Cacao poudre alcoolat 50° *;;2754.227999999998;11.98
+NLA0152K;Cacao Fèves infusion 70° *;84649-99-0;32790.954999999994;22.2
+NLA0153K;Cafe extrait CO2 Expresso *;-;5059.31;486.9
+NLA0154K;Ethyl decanoate naturel;110-38-3;2395.78;28.6
+NLA0155K;Ethyl laurate naturel;106-33-2;364.476;23.4
+NLA0156K;Noix de coco infusion 70° *;;3918.84;10.75
+NLA0157K;Geranium Type Bourbon essence ;8000-46-2;42.55;280
+NLA0158K;Ethyl octanoate naturel;106-32-1;239.78;32.4
+NLA0159K;Alcool benzylique naturel;100-51-6;586.7;259.96
+NLA0160K;Cis-3-Hexènol naturel *;928-96-1;3286.009;322.83
+NLA0161K;1-Hexanol naturel ;623-37-0;194.2189999999999;22
+NLA0162K;Acetyl propionyl naturel;600-14-6;761.2300000000001;213.51
+NLA0163K;Neroli essence;8016-38-4;0;5100
+NLA0164;Alpha-ionone naturel;127-41-3;55.58000000000001;4500
+NLA0165K;4-Méthyl Guaiacol naturel;93-51-6;100;1491.63
+NLA0166K;Acide hexanoïque naturel;142-62-1;4222.05;27.52
+NLA0167K;Eau de fleurs d'oranger absolue;68916-04-1;90.544;3820.01
+NLA0168K;Foin Absolue ;8031-00-3;416.068;2505.26
+NLA0169K;Citronnelle HE ;8000-29-1;863.586;45
+NLA0170K;Acétate d'octyle naturel;112-14-1;98.878;480
+NLA0171K;Ethyl 2-methylbutyrate naturel *;7452-79-1;959.237;167.62
+NLA0172K;Delta-dodécalatone naturel;713-95-1;139;2000
+NLA0173K;Menthe verte (crépue) HE (USA);8008-79-5;1353.264;45
+NLA0174;Terpinène-4-ol naturel;562-74-3;973.9;105.32
+NLA0175K;Isoamyl alcool naturel;123-51-3;962;58
+NLA0176K;Filbertone Naturelle à 1% ds Triacétine;81925-81-7;973.37;480
+NLA0177K;Fermentone naturel (1% / EtOH) *;23696-85-7;0;735
+NLA0178K;Chene copeaux extrait  *;68917-11-3/97678-29-4;394.625;255
+NLA0179K;Gamma-nonalactone naturel;104-61-0;338.533;941.17
+NLA0180K;Dihydrocoumarine naturel;119-84-6;1449.429;271.31
+NLA0181K;Gamma-dodécalactone naturel;2305-05-7;915;977.53
+NLA0182;2 isopropyl 4 methyl Thiazol naturel 1%/ETOH *;15679-13-7;830.02;846
+NLA0183;Gamma-undécalactone naturel;104-67-6;952;405.67
+NLA0184K;"Eucalyptus ""Globulus"" HE *";8000-48-4;1244.403;87.31
+NLA0186K;Framboise alcoolat * ;84929-76-0;896.8270000000005;19.3
+NLA0201K;Alpha terpinéol naturel;98-55-5;1683.52;102.45
+NLA0269;Cannelle Chine HE;84961-46-6;987.22;70.67
+NLA0270;Fenouil doux essence;84455-29-8;0;85
+NLA0271K;Noix infusion 60° *;84012-43-1;0;10.02
+NLA0272K;Noisette alcoolat 75° *;84012-21-5;0;23.25
+NLA0273K;Girofle clous essence extra;8000-34-8;969.84;37.5
+NLA0274K;Cacao fèves alcoolat 70° *;84649-99-0;4890;17.79
+NLA0275K;4-éthyl guaïacol naturel;2785-89-9;986.69;462.5
+NLA0276K;Amande douce alcoolat *;-;0;37.5
+NLA0277;Filbertone Naturelle à 1% ds EtOH *;81925-81-7;758.869;670
+NLA0278K;Beta ionone Naturel;14901-07-6;84.533;900
+NLA0297;Coffee - Extrait de Café;-;0;0
+NLA0298;Extrait de Vanille;-;0;0
+NLA0299K;Extrait de cacao 3012;-;136218;96.36
+NLA0322;Alpha-pinène naturel *;80-56-8;605.3200000000002;40.38
+NLA0323;Béta-caryophyllène naturel;87-44-5;852.7750000000001;38.89
+NLA0329;Clémentine essence *;8008-31-9;982.64;93.36
+NLF0330K;Citron vert essence (Côte d'Ivoire) *;8008-56-8;2031.433;66.37
+NLA0335;Corps noisette naturel;-;789.05;286
+NLA0336;Extrait de café 70°Brix;-;0;5.9
+NLA0349K;Vanilla extract 3X 35% ETOH v/v * ;-;0;157.24
+NLA0351;American Oak extract 16X;-;0.5;255
+NLA0352K;Miel extrait ;-;4638.204000000001;75.39
+NLA0355;Extrait de vanille 1 fold;-;0;22
+NLA0358;Extrait de thé CO2 * ;-;213.38;2050
+NLA0359;Extrait de vanille GRUNDO ;-;0;298.11
+NLA0359PB;Extrait de vanille GRUNDO;-;0;425
+NLA0373K;Café alcoolat *;-;47.825;14.38
+NLA0374K;Orange Brésil Pera essence *;8028-48-6;1745.4830000000002;52.01
+NLA0376;Jus de pruneau concentré;-;0;6.23
+NLA0390K;Bois de santal HE;8006-87-9, 
+84787-70-2;0;2950
+NLA0391;Patchouli absolu;8014-09-3, 
+84238-39-1;0;700
+NLA0392K;Cedre bois virginie HE;8000-27-9;0;50
+SLA0393;Citronellol NI;106-22-9;868.874;172.99
+NLA0396;Palmarosa HE;8014-19-5;0;340
+NLA0398K;Rose Turquie absolue;8007-01-0;39.98;3435.9
+NLA0399K;Noix de muscade HE;8008-45-5, 
+84082-68-8;0;140
+NLA0400;Ylang Ylang HE;-;4;619.5
+NLA0401;Fenouil doux essence extra;84455-29-8;0;350
+NLA0402K;HE Vetyver (Java) HP 50;8016-96-4;1000;370
+NLA0403K;Cardamome essence extra;8000-66-6;486.87;540
+NLA0404;HE Lie de vin blanche;8016-21-5;651.996;770
+NLA0406;Baie de genievre essence;8002-68-4;1000;305
+NLA0408;Extrait de vanille HYDRIL LBM 3 fold Premium Goods*;-;4200;93.85
+NLA0425K;Extrait de vanille 24228*;-;0;40
+NLA0430;Amyris HE;8015-65-4, 90320-49-3;0;478
+NLA0431;Gaiac bois HE ;8016-23-7;507.32;95
+NLA0439K;Colombo Infusion 40*;-;0;11.18
+NLA0440K;Acide isobutyrique naturel *;79-31-2;8099.75;31.55
+NLA0454K;Acétate de butyle naturel *;123-86-4;721;72.8
+NLA0458K;Isobutyl Acetate Naturel;110-19-0;0;0
+NLA0462K;"Buchu ""Crenulata"" HE";68650-46-4;249.6;2084.69
+NLA0463K;BUCHU LEAF OIL, BETULINA;;0;2268
+NLA0464;Pyroligneous acid ;;0;0
+NLA0465;Arôme de fumée AFS3 ;;98;0
+NLA0466;Arôme naturel WW6 ;;60;0
+NLA0477;Infusion fraise;;30;0
+NLA0478;Infusion framboise;;5;10.08
+NLA0482;French Oak extract;;0;0
+NLA0489;Lactic acid naturel 85%;50-21-5, 598-82-3;956.88;60
+NLA0493;Extrait de vanille MALAC;;0;750
+NLA0494;Extrait de vanille MADO;;0;3266.94
+NLA0495;Extrait de vanille REDO;;524926.605;350
+NLA0496;Extrait de vanille RELAC;;72153;40
+NLC0003K;DMS naturel *;75-18-3;997.962;249.99
+NLC0005K;Trans 2, trans 4-decadienal naturel;25152-84-5;560.0799999999998;5340
+NLF0008K;Cinnamaldéhyde naturel;104-55-2;860.106;396.44
+NLF0010K;Diacetyl naturel ;431-03-8;20990.903;23.5
+NLF0012K;Ethyl lactate naturel;97-64-3;906.03;78.77
+NLF0013K;Butyric acid naturel ;107-92-6;2473.173;14
+NLF0014K;Pin Siberie essence extra ;8021-29-2;386.5280000000002;42.5
+NLF0021K;Butyrate d'éthyle naturel *;105-54-4;7697.569000000001;29.45
+NLF0022;Gamma-décalactone naturel;706-14-9;185.61400000000003;212.89
+NLF0028K;Isovaleric acid naturel ;503-74-2;959.18;31.2
+NLF0029K;Isovaleraldehyde naturel ;590-86-3;162.72500000000008;500
+NLF0030K;Oleic acid naturel;112-80-1;408.808;53.5
+NLF0031K;Trans-2-hexenal naturel-remplacé par NLF0334;505-57-7;0;1120
+NLF0032;Orange essence Floride (remplacé par NLF0259);8008-57-9;0;186.6
+NLF0033K;Mandarine jaune (Italie) essence *;8008-31-9;980.256;154.89
+NLF0034K;Acétoïne naturel *;513-86-0;18737.547999999995;11.95
+NLF0036K;Hexanal naturel *;66-25-1;191.215;568.52
+NLF0037K;Citron Italie essence *;8008-56-8;2530.3849999999998;59.42
+NLF0038K;Acétate d'éthyle naturel *;141-78-6;22264.725;23.35
+NLF0041K;Terpènes d'Orange *;8028-48-6;964.072;78.43
+NLF0043K;Ethyl propionate naturel;105-37-3;1325.25;135
+NLF0044K;5 methyl furfural nat;620-02-0;530.1899999999998;1466.21
+NLF0050K;Dimethyl pyrazines naturel;5910-89-4;422;0
+NLF0054K;2,3,5 trimethyl pyrazine naturelle;14667-55-1;764.9569999999999;1720
+NLF0062K;Thiomenthone naturel ;38462-22-5;65.25599999999997;4540
+NLF0063K;Furfuryl mercaptan naturel;98-02-2;119.602;580.65
+NLF0065K;Methyl thioacetate naturel  ;1534-08-3;0;8360
+NLF0067K;Methyl thio butyrate Naturel;2432-51-1;309.50699999999995;10096
+NLF0068K;Difurfuryl Disulfide Naturel;4437-20-1;0;2225
+NLF0069;2-methyl 3-furanethiol naturel 5% EtOH *;64-17-5 / 28588-74-1;0;1780
+NLF0070K;Methional 5% ETOH Naturel;3268-49-3 / 64-17-5;24.426000000000005;1335
+NLF0071K;2,3 hexanedione Naturel;3848-24-6;0;425
+NLF0133K;Furfural naturel *;98-01-1;0;88.2
+NLF0257;Beurre arôme naturel 9218;-;0;0
+NLF0259K;Orange douce Italie essence *;8028-48-6 ; 8008-57-9;6795.418390350054;48.93
+NLF0260;Citron specialite;84929-31-7;0;168.5
+NLF0308;Pamplemousse essence *;8016-20-4;4653.927997580573;78.09
+NLF0334K;Trans-2-Hexènal naturel *;6728-26-3;202.741;1120
+NLF0339K;2-Methyl-4-Propyl-1,3-oxathiane naturel 1% ;67715-80-4;1180.7510000000002;339.24
+NLF0389K;2-isopropyl 4-methyl thiazol naturel;15679-13-7;96.94;8450
+NLF0474K;IMMORTELLE ABSOLUE Italie;;103.444;292.21
+NLF0475K;VALERIANE H.E;;80.974;452.26
+NLF0484;Tetrarome Orange 987431 ;;802.41;112
+NPA0141K;Acide décanoïque naturel;334-48-5;133.57899999999998;174.89
+NPA0189K;Vanilline naturelle;121-33-5;62467.708;313.82
+NPA0191K;Maltol naturel;118-71-8;78201.213;78.19
+NPA0192K;MCP Naturel ;80-71-7/ 765-70-8 ;18990.348;112.65
+NPA0202K;Pipéronal naturel;120-57-0;244.76600000000013;1161.28
+NPA0203K;Phenyl acetic acid naturel;103-82-2;364.745;1872.01
+NPA0204K;Lauric acid naturel;143-07-7;1000;18.7
+NPA0205K;Frambinone naturel;5471-51-2;407.46599999999967;262
+NPA0206K;Menthol cristallisé naturel ;89-78-1; 2216-51-5;42124.018;24.52
+NPA0305K;Café RK01;-;9960;8.19
+NPA0306K;Café RK04 ;-;1746900;10.83
+NPA0307K;Café RK01DR;-;21999.20000000001;8.3
+NPA0353;Café soluble 1905CS02;-;3000;9.8
+NPA0360;Gingembre poudre;-;0;10.5
+NPA0361;Clou de giroffle poudre;-;0;21.05
+NPA0362;Cannelle poudre;-;0;9.13
+NPA0363;Poivre noir grain;-;0;19.5
+NPA0364;Muscade poudre;-;0;24.95
+NPA0365;Guarana poudre;-;0;12
+NPA0366;Noix de kola  poudre;-;0;10.4
+NPA0367;Gingseng rouge poudre;-;16880;233
+NPA0368;Rhodiola poudre;-;0;90
+NPA0369;Cacao poudre  ;-;378926.9;3.78
+NPA0370;Stevia poudre;-;0;70
+NPA0371;Mate poudre;-;0;22
+NPA0372;Thé vert  poudre;-;0;17.8
+NPA0384;Poudre de vanille planifolia Inde;-;5000;330
+NPA0434;Résidus de vanille planifolia Madagascar;-;0;34.08
+NPA0467;Extrait de levure 2120/0 MG-L;;0;0
+NPA0471;Graines de vanille epuisées ;;30000;60.89
+NPA0486;Instant Coffee;;472642.5;15
+NPC0002K;Furanéol naturel;3658-77-3;3000.12;450
+NPF0047K;2,3,5,6-Tetramethyl pyrazine naturel;1124-11-4;0.9;1100
+NPF0072K;2-Acetyl pyrazine Naturel;22047-25-2;280.10200000000003;11744.81
+NSA0092K;Tolu Baume absolu extra *;9000-64-0;0;178
+NSA0093K;Benjoin resinoide Siam extra *;9000-05-9;0;99
+NSA0094;Perou resinoide absolue *;8007-00-9;107.35;95
+NSA0098;Cire d'abeille absolu  * ;8012-89-3;682.9100000000002;2350.47
+NSA0103K;Encens resinoide ;8050-07-5;0;70
+NSA0114;Fenugrec extra *;84625-40-1;95.080999812079;435
+NSA0122K;Osmanthus absolu *;92347-21-2;92.238;4320.71
+NSA0126K;Fèves Tonka absolue;8046-22-8;436.0690000000001;4803.58
+NSA0185K;Mousse chene abs ;9000-50-4;462.717998974203;600
+NSA0197K;Cinnamate de méthyle naturel;103-26-4;953.375;199.11
+NSA0461K;Perou baume;8007-00-9;0;98
+SBF9001;Beurre 01;-;0;0
+SBF9003;Cœur vanille 03;-;0;72.18
+SBF9005;Cœur nuts 05;-;0;7.98
+SBF9009;Cœur CHOC SB05034;-;0;0
+SBF9010;Cœur vanille 10;-;0;65.88
+SBF9015;Corps vanille;-;0;208.74
+SBF9022;Compo Narroo;-;0;1172.97
+SLA0091;Substitut éther de rhum *;;4925.072;62.38
+SLA0207K;Filbertone G;81925-81-7;72.27400000000002;2895
+SLA0208K;Benzoate de benzyle;120-51-4;991.32;31.28
+SLA0210;Butyrolactone gamma;96-48-0;0;77
+SLA0211K;Alcool benzylique;100-51-6;81629.4;6.4
+SLA0212K;Acide acétique *;64-19-7;10000;25.19
+SLA0213K;Acetophenone;98-86-2;891.2380000000003;38.7
+SLA0214K;Anisyl acetate ;104-21-2;989.592;39.5
+SLA0216K;Anisaldéhyde;123-11-5;4216.419000000001;39.77
+SLA0217K;Ethyl phenylacetate;101-97-3;904.94;86
+SLA0218K;Acétate de benzyle;140-11-4;1377.3249999999996;21.88
+SLA0219K;Benzaldéhyde;100-52-7;10181.38;31.01
+SLA0220;Delta-décalactone;705-86-2;816.1149999999998;21.99
+SLA0221K;Dihydrocoumarine;119-84-6;10117.267999999998;27.81
+SLA0222;Delta-dodécalactone;713-95-1;3612.58;56.07
+SLA0223K;Gamma-dodécalactone;2305-05-7;478.2959999999997;33.55
+SLA0224K;Furfural;98-01-1;0;55
+SLA0225K;2-Heptanone;110-43-0;770;66.59
+SLA0226K;Cis-3-Hexènol *;928-96-1;1005.0510000000002;127
+SLA0227K;Gamma-heptalactone;105-21-5;379.3579999999994;69.5
+SLA0228;Methyl laurate;111-82-0;895.07;70
+SLA0229K;Linalol ;78-70-6;1118.497;62.36
+SLA0230K;Gamma-octalactone;104-50-7;1485.0980000000018;16.92
+SLA0231;Delta-octalactone;698-76-0;1470.52;124.99
+SLA0232K;Alcool Phényl Éthylique;60-12-8;780.341;66.86
+SLA0233K;Shoyu furanone; 27538-09-6 ;0;735
+SLA0234K;Acétate de Styrallyle;93-92-5;823.9800000000001;170.29
+SLA0235;Salicylate de Méthyle;119-36-8;13378.425;55
+SLA0236K;Allyl heptanoate;142-19-8;15;79.5
+SLA0237K;4-Ethyl guaiacol;2785-89-9;66.22500000000001;838
+SLA0239K;Propyl butyrate;105-66-8;0;86.1
+SLA0240K;Alpha terpinéol;98-55-5;1824.335;64.33
+SLA0241K;Gamma-nonalactone;104-61-0;5655.555;27.59
+SLA0242K;Octanoic acid NI ;124-07-2;1889.968;29.4
+SLA0243K;Isobutyl phenylacetate;102-13-6;2370.52;99.41
+SLA0244K;Allyl hexanoate;123-68-2;920.49;63.24
+SLA0245;Hedione;24851-98-7;189.6;23.94
+SLA0280K;Anethol;4180-23-8;192.655;79.59
+SLA0281K;Terpinene 4 ol ;562-74-3;445.105;72
+SLA0283K;Gamma-décalactone;706-14-9;147.47100000000017;21.13
+SLA0284K;Gamma-hexalactone;695-06-7;1595.119;168.43
+SLA0285K;Alcool isoamylique *;123-51-3;7342.615000000001;31.24
+SLA0286K;Ethyl lactate ;97-64-3;975.9;63.53
+SLA0287K;D-Limonène *;5989-27-5;5139.48;43.84
+SLA0288K;Ethyl palmitate;628-97-7;0;228
+SLA0289K;Phenyl ethyl acetate;103-45-7;303.814;70
+SLA0290K;Methyl nonyl ketone; 112-12-9;0;228
+SLA0291;Gamma-undécalactone;104-67-6;883.686;36.11
+SLA0292K;Valeric acid;109-52-4;744.13;39.6
+SLA0293K;Delta-nonalactone;3301-94-8;1975.772;277.71
+SLA0294K;2-Pentadecanone;2345-28-0;0;150
+SLA0304K;Hexyl hexanoate;6378-65-0 ;953;77.4
+SLA0312K;Béta-damascone;23726-91-2;558.9749999999999;392
+SLA0313K;Cinnamyl acetate;103-54-8;0;60
+SLA0314K;Cis 3-hexenyl acetate ;3681-71-8;600.038;140
+SLA0315K;Acide propionique *;79-09-4;7211.075000000001;25.52
+SLA0317;Hexanoate d’éthyle *;123-66-0;2519.483;39.25
+SLA0318K;Acétate d'isoamyle *;123-92-2;19404.962;21.74
+SLA0319;Acétate d'hexyle *;142-92-7;579.673;40.17
+SLA0321K;Terpenyl acetate;80-26-2 8007-35-0;870.354;66
+SLA0324K;Rose oxyde;16409-43-1;12.596;650
+SLA0325K;Diphenyl Oxyde;101-84-8;720.841;72.26
+SLA0326;Cis-6-nonen-1-ol;35854-86-5;56;1600
+SLA0327K;Methyl 2-octynoate;111-12-6 ;190.124;360.48
+SLA0337;Ethyl cinnamate;103-36-6;110.97300000000004;35.7
+SLA0340;Methyl trans cinnamate;103-26-4;690.5260000000002;44.11
+SLA0341K;Isoamyl cinnamate ;7779-65-9;998.758;135
+SLA0342;Hexyl butyrate ;2639-63-6;532.4240000000001;26.25
+SLA0344;Diphenyl oxyde-remplacé par SLA0325;101-84-8;0;355
+SLF0345;Citral;5392-40-5;433.13900000000007;36.27
+SLA0375;Decanol;112-30-1;998.36;18
+SLA0382;Lactic acid 80%;50-21-5, 598-82-3;0;0
+SLA0394K;Nérol;106-25-2;4700.214;43.7
+SLA0395K;Geranyl acetate NI;105-87-3;2.422;0
+SLA0397;Phenylacetaldehyde;122-78-1;265.04;4500
+SLA0413K;1-octen-3-ol;3391-86-4;1.988;225
+SLA0426K;Butyl alcool;71-36-3;473.91;56.4
+SLA0427K;Nootkatone ;4674-50-4;4.8;10760
+SLA0428K;Isobornyl acetate;125-12-2;977.61;60
+SLA0442K;Ethyl Cyclopentenolone (50% PG);21835-01-8;976.75;169.22
+SLA0443K;Trans-2-buténoate d’éthyle *;623-70-1;992;135.03
+SLA0444K;Malonate de diéthyle;105-53-3;1028;86.78
+SLA0446;4,5-Dimethylthiazole;3581-91-7;25.09;2604
+SLA0447;6-Methyl-5-Hepten-2-One;110-93-0;0.92;925
+SLA0448K;Ethyl valerate;539-82-2;2.835;75.9
+SLA0449K;Acetate de Linalyle;115-95-7;990.018;77.9
+SLA0450K;4 Oxoisophorone;1125-21-9;7.865;383
+SLA0452K;Alcool Cinnamique ;104-54-1;4488.67;26.61
+SLA0453K;Acétate d’isobutyle *;110-19-0;1180.36;68.36
+SLA0455K;2 Methyl Butyl Acetate;624-41-9;709;72.56
+SLA0456K;Amyl Propionate;624-54-4;667;119.01
+SLA0481;L-carvone;6485-40-1;0;79.9
+SLA0488K;Ambrettolide;7779-50-2;11.099000000000004;545
+SLC0004K;Dimethyl trisulfide;3658-80-8;0;545
+SLC0018K-chger pour Blh;Trans 2, Trans 4-Decadienal;25152-84-5;9.799;3560
+SLC0247;DMS *;75-18-3;3398.4599999999987;53
+SLF0007K;2,3-Hexanedione;3848-24-6;65.84;468
+SLF0016K;Isovaléraldéhyde *;590-86-3;2293.954;30.93
+SLF0017K;Acide butyrique;107-92-6;26556.914;7.95
+SLF0019;5-Methyl 2-thenaldehyde--remplacé par SLF0414;13679-70-4;0;1910
+SLF0020K;2-Acétylpyridine;1122-62-9;789.395;313.05
+SLF0023;Cinnamaldehyde;104-55-2;526.7189999999997;39
+SLF0024K;Trans 2, trans 4-heptadienal;4313-03-5;84.95;1400
+SLF0027K;Butyrate d'éthyle *;105-54-4;10916.193999999996;12
+SLF0035K;5-Methyl 2-phenyl 2-hexenal;21834-92-4;154.79999999999978;752
+SLF0039K;Acétate d'éthyle *;141-78-6;13264.998;11.18
+SLF0040K;Aldéhyde C12 Laurique;112-54-9;0;102
+SLF0042K;Diacétyle *;431-03-8;27625.747;11.59
+SLF0045;2-Ethyl-3-methylpyrazine;15707-23-0;48.271000000000015;194.25
+SLF0048;2-Ethyl 3,5/6-dimethyl pyrazine;55031-157;7.764;441
+SLF0049K;2,5-Dimethyl pyrazine;123-32-0;100.816;788.05
+SLF0051K;2-Methoxy 3-methyl pyrazine *;2847-30-5;45.79499999999993;360
+SLF0053;2,3,5-Trimethyl pyrazine *;14667-55-1;8520.933;65
+SLF0057K;Furfuryl mercaptan;98-02-2;988.235;203.4
+SLF0058K;Sulfurol;137-00-8;834.61;172.3
+SLF0059K;2,4,5-Trimethyl thiazole;13623-11-5;0;720
+SLF0060K;2-Methyl 3-furan thiol;28588-74-1;62.22999999999994;3611.61
+SLF0061K;Méthional;3268-49-3;112.77499999999998;568.75
+SLF0064K;4-(Methylthio)-butanol;20582-85-8;10.63;5960
+SLF0066K;Dipropyl disulfide;629-19-6;0;137
+SLF0249K;Acide hexanoïque;142-62-1;906.93;72.3
+SLF0250K;Hexanal *;66-25-1;467.683;88.99
+SLF0251;Nonanal;124-19-6;502.888;68.25
+SLF0252K;Pentanal;110-62-3;1018.18;72.24
+SLF0253K;Acetaldehyde;75-07-0;0;44.74
+SLF0254K;Isobutyraldehyde;78-84-2;1032.64;54
+SLF0255;5-Méthylfurfural;620-02-0;7002.167;50.97
+SLF0256;2,2,4-Trimethyl 1,3-dioxolane;1193-11-9;0;0
+SLF0258K;2-Acetyl furan;1192-62-7;1015.75;98.48
+SLF0261;Acide isovalerique;503-74-2;954.98;69.9
+SLF0262K;2,3-Dimethyl pyrazine--Chger pour Diff;5910-89-4;101.911;1050
+SLF0263K;Methyl thiobutyrate;2432-51-1;94.87299999999996;866.81
+SLF0264K;Difurfuryl disulfide ;4437-20-1;111.524;1420
+SLF0265K;Furfuryl methyl sulfide;1438-91-1;19.25;1660
+SLF0266K;2-Acetyl thiazole;24295-03-2;906.915;1580.17
+SLF0311;Acetaldehyde 40% ds eau;75-07-0;3548.97;29.4
+SLF0316;Aldéhyde C16;77-83-8;1470.222;72.07
+SLF0320;Thiomenthone;38462-22-5;53.449000000000034;1342.38
+SLF0331;trans-2-hexenal NI;6728-26-3 ;656.7050000000002;140
+SLF0332K;Isovalérate d’éthyle *;108-64-5;761.703;103.77
+SLF0333;Propionate d’éthyle *;105-37-3;1594.182;57.39
+SLF0338;2-isopropyl-4-méthylthiazole *;15679-13-7;94.9;1870.32
+SLF0343;Decanal;112-31-2;896.4270000000001;36.4
+SLF0346;Trans 2 cis 6 nonadienal;557-48-2;0.988;1721.2
+SLF0347K;Melonal ;106-72-9;91.339;1570
+SLF0348;Trans-2-Hexènol *;2305-21-7;954.461;149.4
+SLF0357;Sulfurol lait ;137-00-8;29127.54599999999;32.5
+SLF0383K;Cyclohexane;110-82-7;0;1.74
+SLF0405K;Dimethyl dissulfide NI;694-92-0;5;59.85
+SLF0411K;5,6,7,8-tetrahydroquinoxaline;34413-35-9;18.92;4200
+SLF0414K;5-Methyl-2-thiophenecarboxaldehyde;13679-70-4;623.6189999999998;1852.79
+SLF0415K;4,5-Dihydro-3(2H)-thiophenone;1003-04-9;5.417;5480
+SLF0416;2-isopropyl-3-methoxypyrazine;25773-40-4;0;2710
+SLF0417K;2-Methoxypyrazine;3149-28-8;13.28;2909.23
+SLF0419K;2-Acetyl-3-ethylpyrazine;32974-92-8;1.952;9120
+SLF0420K;(Methylthio)methylpyrazine;67952-65-2;0.117;2650
+SLF0421K;2-acetyl-3,5(6)-dimethyl pyrazine, mixture of isomers;54300-08-2;22.751;10042.81
+SLF0422K;3-Butylidenephthalide;551-08-6;4.198;660
+SLF0429K;Myrcene;123-35-3;780.71;88
+SLF0432K;Ethyl-3-furfurylthiopropionate;94278-27-0;100.8;1200
+SLF0469K;Acetate d'ethyle  pour extractis;;0;0
+SPA0188K;Frambinone;5471-51-2;12512.158;27.47
+SPA0190K;Lauric acid;143-07-7;4298.099999999999;21.45
+SPA0193;Ethyl vanilline;121-32-4;1175850.093000001;14.45
+SPA0194K;Vanilline- ex gaicol;121-33-5;2338896.065;32.39
+SPA0195K;Ethyl maltol;4940-11-8;28733.710000000003;13.5
+SPA0196K;Vératraldéhyde;120-14-9;44342.154999999984;23.36
+SPA0198K;Pipéronal;120-57-0;48795.684;24.99
+SPA0199K;Maltol;118-71-8;82985.833;13.1
+SPA0200K;MCP;765-70-8 / 80-71-7;29679.473;21.25
+SPA0279K;Acétanisole;100-06-1;237.58000000000004;111.74
+SPA0303;Vanilline ex-lignine;121-33-5;624050;47.75
+SPA0328K;6-Methylcoumarine;92-48-8 ;1642.5199999999995;63.43
+SPA0356K;Acide citrique;77-92-9;930;65.85
+SPA0386K;4-hydroxybenzaldéhyde;123-08-0;117000;49
+SPA0387K;Acide vanillique;121-34-6;47800;155.09
+SPA0388;4-Hydroxybenzoic acid;99-96-7;2800;54.17
+SPA0423K;Camphre D;464-49-3;0;60
+SPA0424;CBD ;13956-29-1;1138;2000
+SPA0441K;Acide myristique;544-63-8;10890;35.9
+SPA0451K;Indole;120-72-9;98.82;504
+SPA0457K;Acide phénylacétique;103-82-2;808.9979999999999;44.9
+SPA0459;Lactate de L-menthyle;59259-38-0;581.5759999999999;100
+SPA0460;Menthol Carboxamide;39711-79-0 ;0;110
+SPC0001K;Furanéol;3658-77-3;4000.001;86.72
+SPC0246K;DMCP;13494-06-9;10.65;2240
+SPF0006K;Acide décanoïque;334-48-5;2623.718;55
+SPF0046;2-Acetyl pyrazine;22047-25-2;610.5759999999999;189.45
+SPF0052K;2,6-Dimethyl pyrazine--Chger pour Diff;108-50-9;218.9;2096
+SSA0209K;Benzyl cinnamate;103-41-3;999.85;66.67
+SSA0215K;Alcool anisique;105-13-5;8555.835;17.97
+SSF0267K;Sotolon;28664-35-9;4.852;9120
+SSF0412K;5-Methylquinoxaline;13708-12-8;9.464;2375
+X2001NL;Pure paradise;-;0;42.32
+XLA0378;Nicotine base 0,9 ;-;0;7.44
+XLA0380;Nicotine base 1,9;-;0;9.53
+A4093BL;Extrait de vanille BIO concentré;;0;0
+SLA0497;Isobutyrate de maltyle;65416-14-0;1218.86;198.85
+SLA0499;Cyclohexylpropionate d'allyle;2705-87-5;10;0
+NSA0500;Mimosa absolue;8031-03-6 ; 93685-96-2;15;0
+NLA0501;Linoleic acid naturel;60-33-3;10;0
+SSF0502;Trithioacétone;828-26-2;10;0
+SLC0503;2-isobutyl-3-méthoxypyrazine;24683-00-9;10;0
+SLF0504;2-éthyl-4-méthylthiazole;15679-12-6;10;0
+SLF0505;Terpinolène *;586-62-9;10310;35.92
+SLF0506;Homofuronol, mixture of isomers;27538-09-6;10;1370
+SLF0507;2,3-diéthyl-5-méthylpyrazine;18138-04-0;10;0
+SLF0508;Delta-3-carène;13466-78-9;10;0
+SLA0509;Apritone;68133-79-9;9.99925;0
+SSF0510;Maple furanone;698-10-2;95.92;3290
+NSA0511;Beurre de cacao;;0;8.1
+NLF0512;Extrait de thé noir concentré;;1960;44.89
+NLA0513;Ethyl phenyl acetate naturel;;0;1790
+NLA0514;Acetophenone Naturel;;0;1380
+ILA0515;Huile de tournesol ;;0;1.8
+SLA0516;Anthranilate de méthyle;134-20-3;924.692;51
+IPA0517;Glucidex 12;9050-36-6;4190000;1.79
+;test mp;;0;0
+;Caroube;;0;0
+NLF0518;Myrcene Nat;;8.3;0
+BLA0519;Extrait de vanille BIOMALAC;;0;528.38;aromatisant
+SPF0520;Toffee furanone ;19322-27-1 ;24.985;696
+BLA0521;Caramel SLBA 197 BIO;;59438.975;3.05;aromatisant
+BPA0522;Café atomisé arabica BIO 805;;34470;27.66
+BPA0523;Café atomisé arabica Colombie BIO 809 ex808;;0;26.55
+BPA0524;Café lyophilisé arabica BIO 807;;0;28.25
+BLA0525;Extrait de café CO2 arabica BIO;84650-00-0;1489.021;244.77;aromatisant
+BIOGINF;GOUSSE HYDRO BIO;;10000;0
+BIOGLAC;GOUSSE LACTO BIO;;0;0
+BIOGOLEO;GOUSSE OLEO BIO;;0;0
+BIOGP;GOUSSE POUR POUDRE BIO;;0;0
+BIOSEF20;SOLVANT ETHANOL FIN BIO 20L;;80;0
+BIOSEF200;SOLVANT ETHANOL FIN BIO 200L;;0;0
+GINF;GOUSSE HYDRO;;0;0
+GLAC;GOUSSE LACTO;;0;0
+GOLEO;GOUSSE OLEO;;0;0
+GP;GOUSSE POUR POUDRE ;;0;0
+SA;SOLVANT ACE;;200;0
+SC;SOLVANT CY;;200;0
+SED;SOLVANT ETHANOL D;;1400;0
+SEF200;SOLVANT ETHANOL FIN 200L;;2500;0
+SEF25;SOLVANT ETHANOL FIN 25L;;775;0
+PS ACETATE;PS ACETATE ETHYLE;;0;1.9
+PS CYCLO;PS CYCLOHEXANE;;0;1.78
+PS ETHA DENA;PS ETHANOL DENATURE;;0;1.28
+NLA0526;Miel alcoolat;;50;10.99
+M4213NL_PROD;Arôme naturel goût Menthe polaire pour 50ml;;0;3.3
+A4239VB;Loose bean;;0;0
+NPA0531;Nootkatone naturelle 80%;4674-50-4;0.25;2360
+BPA0527;Poudre de vanille planifolia Madagascar BIO;;457650;201.34
+BPA0528;Poudre de vanille épuisée BIO;;202748;6
+NLA0529;Extrait de cacahuète CO2;;0;540
+BLA0530;Glycerine végétale BIO ;56-81-5;1241148.3;5.5;support
+NLA0532;Mangue alcoolat;;50;9.2
+BLA0533;Extrait de Vanille BIOUNILAC;;22178.490000000005;789.05;aromatisant
+A4266NP;Poudre de vanille épuisée;;10;0
+A4267NP;Gousse de vanille cuts épuisée;;70;0
+NLA0534;Peroxyde d’hydrogène;;299000;3
+NLA0535;triethanolamine 99%;102-71-6;43685;4
+NLA0536;Acusol 830;;118740;8.5
+ILA0537;Sepigel 305;;57500;20
+SLA0538;Isobutyl alcool;78-83-1;1168.22;51.6
+NLA0540;MALAC86;;10000;464.93
+ILA0539;Bioethanol 99°;;2213000;1.07
+BLA0541;Sirop de glucose BIO;;80259.507;3.13;support
+A4324NP-old;Poudre de vanille epuisée milled VC;;0;0
+IPA0552;Benzoate de sodium;;729.1999997503999;65.68
+SPA0544;L-Menthol;2216-51-5;3926.291999999996;16.32
+BPA0545;Sucre de canne BIO blanc;;100000;14.72
+IPA0546;Sirop de sucre inverti;;939388;1.98
+NLA0547;Extrait de vanille UNILAC;;4078957.75;381.07
+BLA0548;BIO Hydril;;0;105;aromatisant
+BLA0549;Bonulac;;5400;43;aromatisant
+ILA0550;Parfum thé vert;;0;32
+BLA0553;Sirop de sucre BIO;;0;2.39;support
+BPA0554;SUCRE INVERTI BIO;;108660;2.76
+SLA0555;p-cresol;106-44-5;1038.144;59.9
+IPA556;WS3;;0;140
+NLA0556;Myristic acid naturel;544-63-8;0;68.3
+NLA0557;Ethyl trans-2-butenoate naturel;623-70-1;8.35;251
+NLF0558;trans-2-Hexen-1-ol naturel;928-95-0;0;1400
+NLA0559;Styrallyl acetate naturel;93-92-5;0;4350
+A4513NP;Poudre de vanille épuisé REYOBA;;0;30
+A4539NL;Extrait de vanille UNILAC Hydrosoluble;;0;952
+A4540NL;Extrait de vanille UNILAC mixte;;0;1088
+BLA0560;Sirop d'agave BIO;;25000;3.52;support
+NLA0561;MALAC86 D;;0;511.42
+NLA0562;Huile de Fusel concentrée *;8013-75-0;35.523;1920.2
+SLA0563;2-Isobutylthiazole;18640-74-9;0;1350
+IPA0564;Gomme d'acacia;;0;0
+NLA0565;Chene CO2*;;681;780
+BPA0568;Dextrose BIO;;57774;6.99
+GVG0671;Gousse de vanille (PNG);;0;92
+NLA0569;Infusion de vanille HYDREX;;0;63
+GVG0641;GOUSSE COMORES Moisies REYOBA;;0;0
+NLF0570K;Methional Naturel;3268-49-3;9.959;4920
+IPA0571;Gomme eficacia XE;9000-01-5;52623.35999999999;11.3
+IPA0572;Thixogum S;;0;8.6
+NLA0573;MALAC LF;;0;85
+NLA0574;Acetaldehyde naturel;;0;69
+IPA0575;Thixogum G;9000-01-5 ; 71010-52-1;19900;support
+GVC0576;Chair de gousses Madagascar gratées;;0;0
+GVP0577;Poudre d'écorce de gousses Madagascar gratées;;0;0
+NLA0578;Camomille Romaine essence;;0;0
+BLA0579;UNIBRUN BIO;;220;850;aromatisant
+BLA0580;Hydrex BIO;;106836;63;aromatisant
+IPA0581;Gomme adragante;9000-65-1;0;60
+BLA0665;BIO UNIBRUN hydrosoluble;;2441.9400000000023;850;aromatisant
+BLA0666;BIO UNIBRUN mixte;;57212;850;aromatisant
+SPA0582;Propényl guaéthol;94-86-0;928.8000000000002;93.46
+NPA0583;Poudre de vanille planifolia Madagascar;;211405;59.27
+NPA0584;Poudre de vanille épuisée planifolia Madagascar;;1020976.7;20.44
+BLA0585;Sirop de datte BIO;;0;0;support
+NLA0586;UNIBRUN HYDROSOLUBLE;;54987;740
+SLA0587;Isovalérate d'isoamyle;659-70-1;0;58
+NLA0588;Coriandre HE;8008-52-4;0;150
+NLA0589;Elemi essence;;0;0
+NLA0590;Hydrex PNG;;0;63
+EMB65;Clé de serrage pour bouchon Ø225mm;;3;70
+IPA0591;Proteines Whey isolate ;;0;31
+NLA0592;Extrait de banane Costa rica kiiNote KRN-11419;;0;283.16
+A4238NL_PROD ;Arôme naturel de vanille avec graines;;0;2.37
+NLA0593;Alcoolat concentration HYDREX passe 2;;0;25
+BLA0594;Alcoolat concentration BIOHYDREX passe 2;;0;30;aromatisant
+testtttttttttttytytyty;testyui;;0;10
+dsfsfdfsfdf;ssdfsdfsdf;;0;0
+NLA0595;Labdanum resinoide;;1002.692;180.89
+NLA0597;Infusion HYDREX phase 2;;345827.2;2
+BLA0598;Infusion HYDREX BIO phase 2;;258090;7;aromatisant
+NPA0599;Graines de Vanille épuisée type S (clean);;164651;73.43
+NPA0600;Graines de Vanille épuisée type W (avec fibre);;0;55.42
+NPA0601;Poudre de Vanille épuisée type W;;0;44.67
+ILA0602;Eau distillée;;30000;3
+ILA0603;Eau déminiralisée;;0;0
+NLF0604;Citral naturel;5392-40-5;1.2999999999999998;270
+NLA0605;UNIBRUN mixte;;36387.155000000006;740
+XLA0606;Sel de nicotine à 10% sur PG;;0;58
+NLA0607;Hydrex PNG phase 2;;0;5
+NLA0608;Extrait d'ananas Floride kiiNote KII-11303;;0;64
+NLA0609;Extrait de Yuzu kiiNote KII-53340;;0;0
+NLA0609;Extrait de Yuzu kiiNote KII-53340;;0;0
+NLA0610;Extrait de mangue kiiNote KRN-11012;;0;175
+NLA0611;Extrait de pêche kiiNote KRN-11330;;0;0
+NLA0611;Extrait de pêche kiiNote KRN-11330;;0;0
+NLA0612;Extrait de cassis kiiNote KII-11568;;0;0
+NLA0613;Extrait d'olive noire kiiNote KRN-11300;;0;0
+NLA0613;Extrait d'olive noire kiiNote KRN-11300;;0;0
+NLA0614;Extrait de pastèque kiiNote KII-12303;;0;55.68
+NLA0615;Extrait de figue kiiNote KRN-10336;;0;69
+NLA0616;Extrait de kiwi Italie kiiNote KII-11301;;0;64
+NLA0617;Extrait de fleur de sureau Europe kiiNote KRN-11550;;0;120
+NLA0618;Extrait de pistache kiiNote KRN-11281;;0;139
+NLA0619;Extrait de goyave kiiNote KRN-11577;;0;70
+NLA0620;Extrait de vanille Madagascar kiiNote KII-52282;;0;285
+NLA0621;Extrait d'hibiscus kiiNote KRN-11423;;0;110
+NLA0622;Extrait de Litchi KiiNote KRN-11889;;0;250
+;;;0;0
+hegdr;hryherh;;0;56
+hrdhdh;shdyhsrt;;0;88
+zereizoe;zerzetze;;0;0
+GVGB0623;Gousses de Vanille BIO (Madagascar);;75000;227.21
+A4399NP_PROD ;Concentré de vanille en poudre (unibrun mixte);;0;10.71
+NSA0624;Réglisse BLOC;;0;16.5
+GVC0625;Chair de gousses Tahiti gratée;;0;0
+GVP0626;Poudre d'écorce de gousses Tahiti gratées;;0;0
+GVG0627;Gousse de Vanille GOURMET (Madagascar);;440890;130
+SLA0628K;Géraniol;106-24-1;635.996;65
+XNL0629;Extrait de tabac oriental;;0;0
+XNL0630;Extrait de tabac Burley;;0;0
+XNL0631;Extrait de tabac virginia;;0;0
+NLA632;Extrait de cacahète;;0;175
+A4529NL_PROD;Extrait de vanille 150;;0;3.59
+NLA0632;Extrait de vanille UNILAC Hydrosoluble;;191472.9;507.32
+A5094NL;Extrait de vanille bourbon UNIBRUN REC;;0;932
+A5095NL;Extrait de vanille bourbon UNIBRUN HC;;0;793
+SLF0633;Ocimene;3338-55-4;0;165
+NPA0634;Poudre de vanille PNG;;572800;90.92
+IPA0635;Sirop de Glucose déshydraté DE25;;0;0
+NLA0636;Orge grain tourbé naturome ext;;0;0
+DLA0637;Encens résinoïde 50% EtOH;;0;35.94
+NLA0638;Galbanum HE *;8023-91-4;81.959;680
+SLA0639;Exaltolide;;106.909;289.49
+GVGB0640;GOUSSE Rouge extraction BIO (Madagascar);;3994000;188
+GVP0642;Poudre de Vanille (Inde);;180000;142.43
+GVG0643;Gousse de Vanille  Gourmet (Inde);;80000;135.43
+SLA0644;DMBC Butyrate;10094-34-5;1000.18;132.99
+A4096BP_PROD;Poudre de vanille BIO;;0;201.54
+GVG0645;Gousse de Vanille LOOSE BEAN ( Madagascar);;0.1529999999984284;40
+NLF0646;2 isobutyl thiazole naturel;;0;0
+NLA0647;Maté alcoolat;;0;15
+SLA0648;Acétoïne *;513-86-0;28131.800000000003;7.35
+SLA0649;Alpha ionone;127-41-3;1014.304;131
+SLA0650;Beta ionone;79-77-6;914.249;126
+NLF0651;Acide 2-méthylbutyrique naturel;116-53-0;730.7470000000001;65
+NLA0652;5-Methyl 2-phenyl 2-hexenal naturel;21834-92-4;0;8950
+X5213AL;Arôme cannelé;;0;0
+IPA0653;Sucre glace;;0;1.2
+NLA0654;Extrait de vanille UNILAC MIXTE;;1351.445;403.85
+IPA0655;Sel;;0;0.85
+NPA0656;Cuts de vanille épuisée type S;;2369714;3.3
+NPA0657;Résidus de vanille multiorigines-peureux;;200000;5.6
+BLA0658;Extrait vanille bio 3 fold;;0;107.5;aromatisant
+NLA0659;Menthe verte (nanah) HE;8008-79-5;671.957;187.06
+SLA0660;Ambroxan;;0;0
+SLA0661K;3 éthyle pyridine;;0;1790
+ILA0662;Sirop de Sucre 67%;;7664147.165000001;0.79
+NLA668_PROD;Infusion de vanille Hydrex;;0;33.22
+NLA0667_PROD;Infusion de vanille Hydrex;;0;33.25
+SLA0668;Bêta-damascénone (fermentone);23696-85-7;100.96;1585.63
+NLA0663;Hydrex Inde;;0;60
+NLA0664;Extrait de cacao usine;;0;30
+CUTS0669;Vanille Bourbon Cuts;;98400;130.83
+GVG0670;Gousse de Vanille planifolia Gourmet (Indonésie);;0;163
+GVG0672;Gousse de Vanille Gourmet Tahitensis (PNG);;0;129
+GVE0673;Gousse de Vanille Tahitensis (PNG);;0;124
+NLA0674;Arôme naturel goût fumée WW11;;0;7.12
+SLA0675;Arôme de fumée QUALIX 10;;19428.335;3.98
+NLA0676;Arôme de fumée oléosoluble QUALIX 10 smoke oil;;0;14.49
+NPA0677;Arôme de fumée AFS P720;;0;11.88
+NLF0678;4-methyl-4-sulfanylpentan-2-one 1% / triacetine naturel;19872-52-7;0;4000
+NLF0679;3-mercaptohexyl acetate naturel;136954-20-6;0;44800
+NLF0680;3-mercaptohexanol 1%/EtOH naturel;51755-83-0;0;462
+SLA0681;Gamma Valerolactone;108-29-2;0;151
+SPA0682;Alcool vanillique;498-00-0;0;361
+BPA0701;Graines de vanille épuisées BIO;;2005.5400000000009;90
+D5477AL;Arôme vieillissant;;0;0
+SLA0473;Succinate de diéthyle;123-25-1;7116;39.2
+ILA0683K;Caramel 374RH;;0;2.1
+NLA0684;Extrait de vanille concentré Hydrex X2;;0;130
+SLA0685;Milk lactone;72881-27-7;0;260
+SLA0686;Passifloran;136954-25-1;0;763
+NLA0687;Concentré de vanille hydrex 10X;;0;756.48
+GVM0688;Gousse de vanille 12-13cm;;300000;60
+NLA689;HE Lavande;8000-28-8;0;245
+ILA0689;Caramel aromatique 7375;;0;2.34
+NLA0690;Extrait de vanille Bourbon A5578NL concentré 2X;;0;812.84
+GVC0691;Chair de gousse PNG tahitensis;;0;0
+NLA0702;Extrait Gingembre Co2;84696-15-1;0;360
+NLA0703;Absolue de vanille UNILAC;;0;1480
+GVNC0704;Gousse de vanille non-conforme;;111780;250
+PVBDB0705;Poudre de vanille BIO débactérisée;;0;315
+NLA0692;Infusion de vanille Ouganda;;0;25
+BPA0707;Cuts de vanille épuisée BIO aprés phase 1;;1000;4
+BLA598_PROD;Infusion de vanille BIO phase 2;;190000;2.64;aromatisant
+A5763BL-MP;Extrait de vanille Bourbon BIO;;0;67.29
+SLA0693;Oxyde de linalol;;0;175
+ILA0708K;Caramel E150b JVC;;0;2.71
+BLA0709;Condensats de vapeurs de caramel (CVC);;0;9.03;aromatisant
+NLA0694K;Ester poire;3025-30-7;0;5580
+SLA0695K;Firestream sweet beech;;0;13.28
+SLA0696K;Firestream sweet Hickory;;0;15.88;
+BLA0710;TCM BIO;73398-61-5;0;8.5;support
+BLA0711;Caramel CVC003 BIO phase oléo;;0;17.53;aromatisant
+NPA0712;Gousse de vanille broyées épuisées apres hydrex phase 1;;499.6100000000006;7
+NPA0697;Graine de vanille non épuisée (ILANGA);;0;90
+SLA0714;Butyrate d'isobutyle *;539-90-2;994.9;61.5
+NLA0715;Fermentone naturel (1% / PG);23696-85-7;869.492;682.5
+NLA0715;Fermentone naturel 1% / PG;;0;0
+NLA0716;Thym rouge HE;85085-75-2;0;189
+NLA0717;Romarin HE;8000-25-7;0;135
+SPA0718;Thymol;89-83-8;0;140
+BPA0719;Café lyophilisé arabica ethiopie BIO 391;;0;0
+NLA0698;Arôme liqueur amère rouge;;0;33.87
+NPA0720;Café soluble arabica colombie 430;;0;24.4
+NPA0699;Indole NAT;;0.064;12000
+NLA0705;Hydrex PNG Concentré 2.2X;;0;0
+NLA0706;Hydrex PNG Phase 2 Concentré 2.17X;;0;0
+NLA0721;Concentré hydrex PNG 12.5X (A6156NL concentré x6.27);;0;115
+NLA0722;Quinquina extrait PG;;0;12.75
+NLF0723;Yuzu lavé sur EtOH;;0;390.25
+NLA0724;Poudre de caroube DARK;;0;3.8
+NLA0725;Fibre de cacao en poudre;;0;6.09
+NLA0726;Poudre de chicorée soluble;;0;8.24
+SLA0727;Eucalyptol;470-82-6;0;100
+NLF0728;Terpinolene naturel;586-62-9;980;125
+NLA0729;Concentré de vanille Bourbon;;0;50
+BLA0730;Concentré de vanille Bourbon BIO;;0;192.53;aromatisant
+BPA0731;Cuts épuisée BIO aprés phase 2;;121000;4
+BLA0732;Extrait de vanille BIO UNILAC hydrosoluble;;0;868;aromatisant
+NLA0734;Quassia amara extrait PG;;1000;27.5
+NLA0733;Extrait de vanille UNILAC hydrosoluble FAIRTRADE;;0;537
+NLA0735;HE Hiper citron vert;;0;1191.42
+NLA0736;HE Yuzu lavé;;0;390.25
+NLA0737;HE Gingembre lavé;;0;39.72
+NLA0738;HE Gingembre supersoluble;;0;625.78
+NPA0739;Cuts de vanille épuisée apres hydrex phase 1;;180000;128.9
+NPA0740;Cuts de vanille épuisée apres hydrex phase 2;;180000;46.33
+NPA0741;Vanille broyée;;226730;119.13
+NLA0667;Hydrex phase 1;;36146.350000000006;13
+NLA0713;Infusion Hydrex phase 2;;425887.65;6.95
+BPA0742;Vanille Broyée BIO;;1000;188
+NLA0743;Orange amère Tunisie HE;;0;85
+NLA0567;UNIBRUN extrait de vanille;;19687.63600000001;427.29
+NLA0567-NC;UNIBRUN extrait de vanille-non conforme;;79020;554
+SLF0744;Formiate d'éthyle;;0;67.5
+NSA0745;Thé vert resinoide extra;;0;1185
+NLA0746;Framboisier feuilles abs extra;;0;4455
+SLA0747;Quinine monohydrochloride dihydrate;;0;401
+NLA0748;Oxyde de linalol naturel;;186.488;1760
+SLA0749;2 methoxy-4-vinylphenol (MVP);;0;740
+NLA0751;Salicylate de méthyl naturel;;2.469;8000
+NPA0752;Fibre de vanille aprés tamisage des graines;;144000;175.45
+BLA0753;Extrait de vanille BIO UNILAC mixte;;0;868;aromatisant
+NPA0754;Graines de vanille non épuisée Vanileco;;12000;50
+SLA0755;Safranal;;0;265
+A6363NL_PROD ( A concentrer 1.5X);Extrait de vanille Bourbon ( A concentrer 1.5X);;0;6.41
+A6363NL-TR;Extrait de vanille Bourbon;;0;23.87
+NPA0756;Poudre de vanille gourmet noire;;88580;146.76
+SLA0757;Octanal NI;;0;31

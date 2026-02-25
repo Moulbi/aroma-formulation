@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import { generateId, today } from '../utils/helpers';
-import { saveToStorage, loadFromStorage, clearStorage } from '../utils/persistence';
+import { loadSheet, saveSheet, updateSheetMeta, loadSheetsIndex } from '../utils/persistence';
 import { DEFAULT_INGREDIENTS, DEFAULT_SENSORY_DESCRIPTORS, DEFAULT_RESPONSIBLES, MAX_TRIALS } from '../data/constants';
+import { calculateQSP } from '../utils/calculations';
 
 const StateContext = createContext(null);
 const ActionsContext = createContext(null);
@@ -23,6 +24,16 @@ function buildInitialState() {
     trials[i] = createEmptyTrial(i);
   }
 
+  const emptyRow = () => ({
+    id: generateId(),
+    nom: '', type: 'support', classification: 'naturel',
+    isExtrait: false, sourceExtrait: '',
+    prix: 0, rgt: '', densite: 1.0, tauxVanilline: 0,
+  });
+  const defaultIngredients = DEFAULT_INGREDIENTS.length > 0
+    ? [...DEFAULT_INGREDIENTS]
+    : Array.from({ length: 6 }, (_, i) => ({ ...emptyRow(), order: i }));
+
   return {
     projectInfo: {
       reference: '',
@@ -32,10 +43,10 @@ function buildInitialState() {
       dosage: '',
       application: '',
     },
-    ingredients: [...DEFAULT_INGREDIENTS],
+    ingredients: defaultIngredients,
     trials,
     activeTrialCount: 5,
-    qspIngredientId: DEFAULT_INGREDIENTS[0]?.id || null,
+    qspIngredientId: defaultIngredients[0]?.id || null,
     sensoryDescriptors: [...DEFAULT_SENSORY_DESCRIPTORS],
     existingReferences: [],
     projectResponsibles: [...DEFAULT_RESPONSIBLES],
@@ -48,6 +59,24 @@ function buildInitialState() {
       notification: null,
     },
   };
+}
+
+const DILUTIONS = [1, 0.1, 0.01, 0.001, 0.0001, 0.00001, 0.000001];
+
+function autoAdjustDilution(mass, currentDilution) {
+  if (mass <= 0 || mass >= 0.03) return { mass, dilution: currentDilution };
+  let newMass = mass;
+  let newDilution = currentDilution;
+  const dilIdx = DILUTIONS.indexOf(currentDilution);
+  if (dilIdx < 0) return { mass, dilution: currentDilution };
+
+  let idx = dilIdx;
+  while (newMass < 0.03 && idx < DILUTIONS.length - 1) {
+    newMass *= 10;
+    idx++;
+    newDilution = DILUTIONS[idx];
+  }
+  return { mass: newMass, dilution: newDilution };
 }
 
 function reducer(state, action) {
@@ -107,6 +136,7 @@ function reducer(state, action) {
       };
     }
     case 'SET_TRIAL_TARGET_MASS': {
+      // Changement simple de masse cible (sans recalcul proportionnel)
       const trial = state.trials[action.payload.trialNum];
       if (!trial) return state;
       return {
@@ -114,6 +144,30 @@ function reducer(state, action) {
         trials: {
           ...state.trials,
           [action.payload.trialNum]: { ...trial, targetMass: action.payload.mass },
+        },
+      };
+    }
+    case 'SCALE_TRIAL_TO_TARGET': {
+      // Recalcul proportionnel des masses quand on change la masse cible
+      const trial = state.trials[action.payload.trialNum];
+      if (!trial) return state;
+      const oldMass = trial.targetMass;
+      const newMass = action.payload.mass;
+      if (oldMass <= 0 || newMass <= 0 || oldMass === newMass) return state;
+      const ratio = newMass / oldMass;
+      const newData = {};
+      for (const [ingId, cellData] of Object.entries(trial.data)) {
+        if (ingId === state.qspIngredientId) {
+          newData[ingId] = cellData; // QSP sera recalculé automatiquement
+        } else {
+          newData[ingId] = { ...cellData, mass: cellData.mass * ratio };
+        }
+      }
+      return {
+        ...state,
+        trials: {
+          ...state.trials,
+          [action.payload.trialNum]: { ...trial, targetMass: newMass, data: newData },
         },
       };
     }
@@ -129,6 +183,25 @@ function reducer(state, action) {
 
     // === Trial cell data ===
     case 'SET_INGREDIENT_MASS': {
+      const { trialNum, ingredientId, mass } = action.payload;
+      const trial = state.trials[trialNum];
+      if (!trial) return state;
+      const cellData = trial.data[ingredientId] || { mass: 0, dilution: 1 };
+      // Auto-ajuster la dilution si masse < 0.03 (sauf QSP)
+      const isQsp = ingredientId === state.qspIngredientId;
+      const adjusted = !isQsp ? autoAdjustDilution(mass, cellData.dilution ?? 1) : { mass, dilution: cellData.dilution ?? 1 };
+      return {
+        ...state,
+        trials: {
+          ...state.trials,
+          [trialNum]: {
+            ...trial,
+            data: { ...trial.data, [ingredientId]: { ...cellData, mass: adjusted.mass, dilution: adjusted.dilution } },
+          },
+        },
+      };
+    }
+    case 'SET_INGREDIENT_MASS_RAW': {
       const { trialNum, ingredientId, mass } = action.payload;
       const trial = state.trials[trialNum];
       if (!trial) return state;
@@ -160,8 +233,27 @@ function reducer(state, action) {
         },
       };
     }
-    case 'SET_QSP_INGREDIENT':
-      return { ...state, qspIngredientId: action.payload };
+    case 'SET_QSP_INGREDIENT': {
+      const oldQspId = state.qspIngredientId;
+      const newQspId = action.payload;
+      // If changing from one QSP ingredient to another, freeze the calculated QSP value
+      // into the old ingredient's mass for all trials
+      if (oldQspId && oldQspId !== newQspId) {
+        const newTrials = { ...state.trials };
+        for (const [num, trial] of Object.entries(newTrials)) {
+          const qspMass = calculateQSP(trial.data, state.ingredients, oldQspId, trial.targetMass);
+          if (qspMass > 0) {
+            const cellData = trial.data[oldQspId] || { mass: 0, dilution: 1 };
+            newTrials[num] = {
+              ...trial,
+              data: { ...trial.data, [oldQspId]: { ...cellData, mass: qspMass } },
+            };
+          }
+        }
+        return { ...state, qspIngredientId: newQspId, trials: newTrials };
+      }
+      return { ...state, qspIngredientId: newQspId };
+    }
 
     case 'TOGGLE_WEIGHED': {
       const { trialNum, ingredientId } = action.payload;
@@ -267,8 +359,27 @@ function reducer(state, action) {
     // === UI ===
     case 'SET_TRIAL_PAGE':
       return { ...state, ui: { ...state.ui, currentTrialPage: action.payload } };
-    case 'SELECT_TRIAL':
-      return { ...state, ui: { ...state.ui, selectedTrial: action.payload } };
+    case 'SELECT_TRIAL': {
+      // Persister la valeur QSP calculée de l'ancien essai avant de changer
+      const oldSelected = state.ui.selectedTrial;
+      const qspId = state.qspIngredientId;
+      let newTrials = state.trials;
+      if (qspId && state.trials[oldSelected]) {
+        const oldTrial = state.trials[oldSelected];
+        const qspMass = calculateQSP(oldTrial.data, state.ingredients, qspId, oldTrial.targetMass);
+        if (qspMass > 0) {
+          const cellData = oldTrial.data[qspId] || { mass: 0, dilution: 1 };
+          newTrials = {
+            ...state.trials,
+            [oldSelected]: {
+              ...oldTrial,
+              data: { ...oldTrial.data, [qspId]: { ...cellData, mass: qspMass } },
+            },
+          };
+        }
+      }
+      return { ...state, ui: { ...state.ui, selectedTrial: action.payload }, trials: newTrials };
+    }
     case 'TOGGLE_WEIGHING_MODE':
       return { ...state, ui: { ...state.ui, weighingMode: !state.ui.weighingMode } };
     case 'SET_PRICING_MODE':
@@ -289,17 +400,25 @@ function reducer(state, action) {
   }
 }
 
-export function FormulationProvider({ children }) {
+export function FormulationProvider({ sheetId, children }) {
   const [state, dispatch] = useReducer(reducer, null, () => {
-    const saved = loadFromStorage();
+    const saved = loadSheet(sheetId);
     if (saved) return { ...buildInitialState(), ...saved, ui: buildInitialState().ui };
-    return buildInitialState();
+    // Nouvelle fiche : injecter la référence auto depuis l'index
+    const initial = buildInitialState();
+    const index = loadSheetsIndex();
+    const meta = index.find(s => s.id === sheetId);
+    if (meta?.reference) {
+      initial.projectInfo.reference = meta.reference;
+    }
+    return initial;
   });
 
-  // Auto-save
+  // Auto-save vers la fiche spécifique
   useEffect(() => {
-    saveToStorage(state);
-  }, [state]);
+    saveSheet(sheetId, state);
+    updateSheetMeta(sheetId, state);
+  }, [state, sheetId]);
 
   const actions = {
     setProjectInfo: useCallback((data) => dispatch({ type: 'SET_PROJECT_INFO', payload: data }), []),
@@ -309,8 +428,10 @@ export function FormulationProvider({ children }) {
     addTrial: useCallback(() => dispatch({ type: 'ADD_TRIAL' }), []),
     setTrialName: useCallback((trialNum, name) => dispatch({ type: 'SET_TRIAL_NAME', payload: { trialNum, name } }), []),
     setTrialTargetMass: useCallback((trialNum, mass) => dispatch({ type: 'SET_TRIAL_TARGET_MASS', payload: { trialNum, mass } }), []),
+    scaleTrialToTarget: useCallback((trialNum, mass) => dispatch({ type: 'SCALE_TRIAL_TO_TARGET', payload: { trialNum, mass } }), []),
     copyTrial: useCallback((from, to) => dispatch({ type: 'COPY_TRIAL', payload: { from, to } }), []),
     setIngredientMass: useCallback((trialNum, ingredientId, mass) => dispatch({ type: 'SET_INGREDIENT_MASS', payload: { trialNum, ingredientId, mass } }), []),
+    setIngredientMassRaw: useCallback((trialNum, ingredientId, mass) => dispatch({ type: 'SET_INGREDIENT_MASS_RAW', payload: { trialNum, ingredientId, mass } }), []),
     setIngredientDilution: useCallback((trialNum, ingredientId, dilution) => dispatch({ type: 'SET_INGREDIENT_DILUTION', payload: { trialNum, ingredientId, dilution } }), []),
     setQSPIngredient: useCallback((id) => dispatch({ type: 'SET_QSP_INGREDIENT', payload: id }), []),
     toggleWeighed: useCallback((trialNum, ingredientId) => dispatch({ type: 'TOGGLE_WEIGHED', payload: { trialNum, ingredientId } }), []),

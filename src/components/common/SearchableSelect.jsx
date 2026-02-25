@@ -62,7 +62,7 @@ export default function SearchableSelect({
       try {
         const items = await searchFn(searchText);
         setResults(items);
-        setHighlightedIndex(-1);
+        setHighlightedIndex(items.length > 0 ? 0 : -1);
       } catch {
         setResults([]);
       } finally {

@@ -11,3 +11,13 @@ export const formatDate = (dateStr) => {
 };
 
 export const today = () => new Date().toISOString().split('T')[0];
+
+export function generateSheetRef(existingRefs = []) {
+  let num = existingRefs.length + 1;
+  let ref;
+  do {
+    ref = `F${String(num).padStart(3, '0')}`;
+    num++;
+  } while (existingRefs.includes(ref));
+  return ref;
+}
